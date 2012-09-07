@@ -41,7 +41,6 @@
 									<?php endif;?>
 								</div>
 								<?php endif;?>
-							<div class="copyright">&copy; University of Central Florida</div>
 						<?php endif;?>
 					</div>
 				</div>
