@@ -67,10 +67,10 @@ select#UCFHBHeaderLinks {
 #home .search label{display: block; color: #C14D00; font-size: 16px; font-weight: normal; font-family: "Georgia", "serif";}
 #home .bottom{margin-top: 16px; border-top: none;}
 
-#header{margin-bottom: .5em;margin-top:20px;}
-#header .social{}
-#header .social.menu.horizontal a{text-indent: -1024px;}
-#header .social.menu.horizontal li:after{content: "";}
+#header{margin-bottom: .5em;margin-top:40px; overflow: auto; padding-bottom: 0;}
+#header h1 a { font-weight: 200; font-size: 38px; }
+#header #header-search { margin-top: 4px; }
+#header #header-search #s { width: 70%; display: inline; }
 
 #footer-menu{ }
 #footer-widget-wrap { margin-top: 16px; }
