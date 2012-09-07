@@ -88,6 +88,13 @@ select#UCFHBHeaderLinks {
 
 #below-the-fold{margin-top: 2em; padding-top: 1em;border-top: 1px dotted #666;}
 #below-the-fold h2{font-size: 18px; margin: 0 0 1em 0; padding: 0;}
+
+#below-the-fold h2.hr-news-header { 
+	/* TODO: find web-safe font alternative */
+	font-family: "Rockwell Light", Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif; 
+	font-weight: 200;
+	font-size: 30px;
+}
 #below-the-fold .footer-contact-wrap { 
 	width: 100%; 
 	background: #fdfbef; 
