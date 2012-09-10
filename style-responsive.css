@@ -23,15 +23,28 @@
 	#footer { margin-left: 0; }
 }
 
+@media (max-width: 768px) {
+	#footer { margin-left: 0; }
+}
+
 @media (max-width: 767px) {	
+	.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 { width: 100%; }
+
 	#header { margin-left: 0; }
+	#header form { margin: 10px 0; }
+	#header #header-search { margin-left: 0; }
+	
+	#header-menu { overflow: auto; margin-bottom: 10px; }
 	
 	#home .description { margin-top: 10px; }
 	
 	#below-the-fold { margin-left: 0; }
-	#below-the-fold .span4 { width: 100%; margin-left: 0; margin-bottom: 20px; }
-	
+	#below-the-fold .span4 { margin-top: 20px; margin-left: 0; margin-bottom: 20px; }
+	#below-the-fold h2 { margin-bottom: 15px; }
 	.news .item { margin-bottom: 10px; }
+	
+	table.events { margin-left: -15px; }
+	#below-the-fold .span3 { margin-left: 0; }
 	
 	/* Shrinkable bootstrap tables for tablets/phones.
 	Responsive table guide via css-tricks.com/responsive-data-tables/ */
@@ -89,6 +102,7 @@
 }
 
 @media (max-width: 480px) {
+	
 	.navbar .menu {
 		padding: 0;
 	}
@@ -123,4 +137,10 @@
     	border-top-color: #fff;
 		margin-top: 4px;
 	}
+	
+	#header { margin-top: 20px; }
+	#header h1 a { font-size: 32px; }
+	
+	.search-form label { font-size: 14px; }
+	#header .search-form #s { width: 175px !important; padding-left: 2px; }
 }
