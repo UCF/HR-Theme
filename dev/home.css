@@ -1,0 +1,13 @@
+.page-content #leftcol { }
+.page-content #leftcol iframe { padding: 10px; -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1); }
+
+.page-content #rightcol { margin-left: 40px; }
+
+.page-content h2 { font-size: 38px; margin-top: 20px; margin-bottom: 10px; }
+.page-content .subhead { font-size: 18px; font-weight: 200; letter-spacing: 0.4px; line-height: 22px; }
+.page-content .addresshead { font-size: 14px; font-weight: bold; margin-top: 15px; margin-bottom: 6px; }
+.page-content .address { font-size: 16px; font-weight: 200; letter-spacing: 0.4px; margin-bottom: 6px; }
+
+@media (max-width: 767px) {	
+	.page-content #rightcol { margin-left: 0; }
+}
