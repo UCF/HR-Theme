@@ -112,7 +112,8 @@ select#UCFHBHeaderLinks {
 #footer-menu li a { font-size: 14px; }
 #footer-widget-wrap { margin-top: 16px; }
 #footer { border-top: 1px solid #e1e1e1; margin-left: -10px; }
-#footer .ucf{}
+#footer #footer-logo, #footer .footer-contact { float: left; }
+#footer .footer-contact { margin-top: 11px; margin-left: 30px; width: 50%; }
 #footer .info{position: relative; top: -10px;}
 #footer .info,
 #footer .info a{line-height: 1.5em; text-align: right; font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif"; font-weight: normal; font-size: 14px;}

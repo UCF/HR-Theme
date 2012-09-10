@@ -56,6 +56,9 @@
 	table.events { margin-left: -15px; }
 	#below-the-fold .span3 { margin-left: 0; }
 	
+	.footer-widget-1, .footer-widget-2, .footer-widget-3 { overflow: hidden; }
+	#footer .footer-contact { width: 100%; clear: both; margin-left: 0; }
+	
 	/* Shrinkable bootstrap tables for tablets/phones.
 	Responsive table guide via css-tricks.com/responsive-data-tables/ */
 	table.table.table-striped, 
