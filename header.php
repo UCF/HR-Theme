@@ -53,8 +53,8 @@
 		<div class="container">
 			<div class="row">
 				<div id="header" class="row-border-bottom-top">
-					<h1 class="span8"><a href="<?=bloginfo('url')?>"><?=bloginfo('name')?></a></h1>
-					<div class="span4" id="header-search">
+					<h1 class="span7"><a href="<?=bloginfo('url')?>"><?=bloginfo('name')?></a></h1>
+					<div class="span5" id="header-search">
 						<?php get_search_form();?>
 					</div>
 				</div>
