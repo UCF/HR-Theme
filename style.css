@@ -72,10 +72,22 @@ select#UCFHBHeaderLinks {
 #header h1 a { font-weight: 200; font-size: 38px; }
 #header #header-search { margin-top: 4px; }
 #header #header-search #s { display: inline; width:65%; }
+#header #header-search #s { *width: 225px; *height: 20px; /* IE7 fix */ }
 
 .menu.horizontal li { margin-right: 8px; }
 .menu.horizontal li:after { content: ""; }
 .menu a { font-weight: 400; color: #333; }
+
+/* Note - these styles are specific to menu item IDs; if a link is moved
+	or added on the menu, these IDs may need to be updated */
+#header-menu li#menu-item-36 { margin-left: 57px; }
+#header-menu li#menu-item-36:after { content: "|"; }
+#header-menu li#menu-item-36 a, #header-menu li#menu-item-37 a { 
+	font-size: 11px; text-transform: uppercase; font-weight: bold;
+}
+#header-menu li#menu-item-36 a:hover, #header-menu li#menu-item-37 a:hover {
+	color: #ED1C24;
+}
 
 #footer-menu{ }
 #footer-menu li a { font-size: 14px; }
