@@ -1,0 +1,23 @@
+a.faq-link { 
+	display: block; 
+	padding: 20px; 
+	background: #4a7eab; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	color: #fff !important; 
+	font-size: 18px !important;
+	text-decoration: none !important; 
+	font-weight: bold; 
+	text-align: center;
+}
+
+#box1, #box2 { height: 135px; }
+#box3, #box4 { height: 80px; }
+
+@media (min-width: 768px) and (max-width: 979px) {
+	#box1, #box2 { height: 160px; }
+}
+
+@media (min-width: 768px) {
+	#box3, #box4 { margin-top: 20px; }
+}

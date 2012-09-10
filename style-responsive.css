@@ -112,6 +112,9 @@
 		border-left: 0;
 	}
 
+
+	.box { height: auto !important; margin-bottom: 20px; }
+
 }
 
 @media (max-width: 480px) {
