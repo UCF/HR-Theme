@@ -266,19 +266,23 @@ Config::$theme_settings = array(
 			'description' => 'Your organization\'s name',
 			'value'       => $theme_options['organization_name'],
 		)),
-		new SelectField(array(
-			'name'        => 'Home Image',
-			'id'          => THEME_OPTIONS_NAME.'[site_image]',
-			'description' => 'Image to feature on the homepage.  Select any image uploaded to the <a href="'.get_admin_url().'upload.php">media gallery</a> or <a href="'.get_admin_url().'media-new.php">upload a new image</a>.',
-			'choices'     => get_image_choices(),
-			'value'       => $theme_options['site_image'],
+		new TextField(array(
+			'name'        => 'Organization Street Address',
+			'id'          => THEME_OPTIONS_NAME.'[organization_addr_str]',
+			'description' => 'Your organization\'s name',
+			'value'       => $theme_options['organization_addr_str'],
 		)),
-		new TextareaField(array(
-			'name'        => 'Site Description',
-			'id'          => THEME_OPTIONS_NAME.'[site_description]',
-			'description' => 'A quick description of your organization and its role.',
-			'default'     => 'This is the site\'s default description, change or remove it on the <a href="'.get_admin_url().'admin.php?page=theme-options#site">theme options page</a> in the admin site.',
-			'value'       => $theme_options['site_description'],
+		new TextField(array(
+			'name'        => 'Organization City, State, ZIP',
+			'id'          => THEME_OPTIONS_NAME.'[organization_addr_csz]',
+			'description' => 'Your organization\'s address city, state, and ZIP code',
+			'value'       => $theme_options['organization_addr_csz'],
+		)),
+		new TextField(array(
+			'name'        => 'Organization Phone #',
+			'id'          => THEME_OPTIONS_NAME.'[organization_phone]',
+			'description' => 'Your organization\'s phone number',
+			'value'       => $theme_options['organization_phone'],
 		)),
 	),
 	'Social' => array(
