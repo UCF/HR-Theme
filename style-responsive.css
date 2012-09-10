@@ -15,6 +15,14 @@
 	#header .search-form #s { width: 54% !important; }
 }
 
+@media (width: 768px) {
+	.page-content, #footer-widget-wrap { padding-left: 20px; }
+	#footer { margin-left: 0; }
+	
+	#below-the-fold .footer-email { font-size: 18px; }
+	#below-the-fold .footer-email a { font-size: 23px; }
+}
+
 @media (max-width: 767px) {	
 	#header { margin-left: 0; }
 	
