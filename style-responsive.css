@@ -13,14 +13,14 @@
 
 @media (min-width: 768px) and (max-width: 979px) {
 	#header .search-form #s { width: 54% !important; }
+	
+	#below-the-fold .footer-email { font-size: 18px; }
+	#below-the-fold .footer-email a { font-size: 23px; }
 }
 
 @media (width: 768px) {
 	.page-content, #footer-widget-wrap { padding-left: 20px; }
 	#footer { margin-left: 0; }
-	
-	#below-the-fold .footer-email { font-size: 18px; }
-	#below-the-fold .footer-email a { font-size: 23px; }
 }
 
 @media (max-width: 767px) {	
