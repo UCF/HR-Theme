@@ -99,12 +99,12 @@ select#UCFHBHeaderLinks {
 
 /* Note - these styles are specific to menu item IDs; if a link is moved
 	or added on the menu, these IDs may need to be updated */
-#header-menu li#menu-item-36 { margin-left: 57px; }
-#header-menu li#menu-item-36:after { content: "|"; }
-#header-menu li#menu-item-36 a, #header-menu li#menu-item-37 a { 
+#header-menu li#menu-item-76 { margin-left: 57px; }
+#header-menu li#menu-item-76:after { content: "|"; }
+#header-menu li#menu-item-76 a, #header-menu li#menu-item-75 a { 
 	font-size: 11px; text-transform: uppercase; font-weight: bold;
 }
-#header-menu li#menu-item-36 a:hover, #header-menu li#menu-item-37 a:hover {
+#header-menu li#menu-item-76 a:hover, #header-menu li#menu-item-75 a:hover {
 	color: #ED1C24;
 }
 
@@ -175,3 +175,7 @@ select#UCFHBHeaderLinks {
 .post-type-search-results {font-size:115%;background-color:#f1f1f1;padding-top:10px;margin-bottom:10px;display:none;}
 .post-type-search-results li {line-height:150%;}
 .post-type-search-sorting {margin-bottom:5px;}
+
+
+.page-content article, .page-content article p, .page-content article a { font-size: 14px; line-height: 22px; }
+.page-content article h1 { font-family: Georgia, Times, serif; font-size: 30px; font-weight: normal; margin-top: 15px; margin-bottom: 10px; }
