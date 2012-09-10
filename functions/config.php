@@ -380,6 +380,7 @@ Config::$links = array(
 Config::$styles = array(
 	array('admin' => True, 'src' => THEME_CSS_URL.'/admin.css',),
 	'http://universityheader.ucf.edu/bar/css/bar.css',
+	'http://fonts.googleapis.com/css?family=Nixie+One',
 	THEME_STATIC_URL.'/bootstrap/build/css/bootstrap.css',
 );
 

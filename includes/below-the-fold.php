@@ -26,19 +26,19 @@
 		</div>
 		<div class="span3">
 			<?php if(!function_exists('dynamic_sidebar') or !dynamic_sidebar('Bottom Right')):?>
+				<!-- TODO: pull this content from theme settings -->
 				<div class="footer-contact-wrap">
 					<p class="footer-contact">
-						Our Contact:<br/>
+						<span class="footer-contact-header">Our Contact:</span>
 						<strong>UCF Human Resources</strong><br/>
 						3280 Progress Drive<br/>
 						Suite 100<br/>
 						Orlando, FL 32826<br/>
-						<strong>Phone: </strong>(407) 823-2771<br/>
-						<strong>Fax: </strong>(407) 823-1095<br/>
+						<span class="footer-contact-phone"><strong>Phone: </strong>(407) 823-2771</span>
+						<span class="footer-contact-fax"><strong>Fax: </strong>(407) 823-1095</span>
 					</p>
 				</div>
 				<p class="footer-email">Questions? Email us: <a href="mailto:askhr@ucf.edu">AskHR@ucf.edu</a></p>
-				Right column will go here...
 			<?php endif;?>
 		</div>
 	</div>
