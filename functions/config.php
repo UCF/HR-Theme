@@ -269,8 +269,14 @@ Config::$theme_settings = array(
 		new TextField(array(
 			'name'        => 'Organization Street Address',
 			'id'          => THEME_OPTIONS_NAME.'[organization_addr_str]',
-			'description' => 'Your organization\'s name',
+			'description' => 'Your organization\'s address',
 			'value'       => $theme_options['organization_addr_str'],
+		)),
+		new TextField(array(
+			'name'        => 'Address Line 2',
+			'id'          => THEME_OPTIONS_NAME.'[organization_addr_str_2]',
+			'description' => 'Your organization\'s address',
+			'value'       => $theme_options['organization_addr_str_2'],
 		)),
 		new TextField(array(
 			'name'        => 'Organization City, State, ZIP',
@@ -283,6 +289,12 @@ Config::$theme_settings = array(
 			'id'          => THEME_OPTIONS_NAME.'[organization_phone]',
 			'description' => 'Your organization\'s phone number',
 			'value'       => $theme_options['organization_phone'],
+		)),
+		new TextField(array(
+			'name'        => 'Organization Fax #',
+			'id'          => THEME_OPTIONS_NAME.'[organization_fax]',
+			'description' => 'Your organization\'s fax number',
+			'value'       => $theme_options['organization_fax'],
 		)),
 	),
 	'Social' => array(

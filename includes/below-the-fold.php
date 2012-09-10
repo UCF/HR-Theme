@@ -26,16 +26,17 @@
 		</div>
 		<div class="span3">
 			<?php if(!function_exists('dynamic_sidebar') or !dynamic_sidebar('Bottom Right')):?>
-				<!-- TODO: pull this content from theme settings -->
 				<div class="footer-contact-wrap">
 					<p class="footer-contact">
-						<span class="footer-contact-header">Our Contact:</span>
-						<strong>UCF Human Resources</strong><br/>
-						3280 Progress Drive<br/>
-						Suite 100<br/>
-						Orlando, FL 32826<br/>
-						<span class="footer-contact-phone"><strong>Phone: </strong>(407) 823-2771</span>
-						<span class="footer-contact-fax"><strong>Fax: </strong>(407) 823-1095</span>
+						Our Contact:<br/>
+						<?php if($options['organization_name']) { print '<strong>'.$options['organization_name'].'</strong><br/>'; } ?>
+						<?php if($options['organization_addr_str']) { print $options['organization_addr_str'].'<br/>'; } ?>
+						<?php if($options['organization_addr_str_2']) { print $options['organization_addr_str_2'].'<br/>'; } ?>
+						<?php if($options['organization_addr_csz']) { print $options['organization_addr_csz'].'<br/>'; } ?>
+						<?php if($options['organization_phone']) { 
+							print '<span class="footer-contact-phone"><strong>Phone: </strong>'.$options['organization_phone'].'</span><br/>'; } ?>
+						<?php if($options['organization_fax']) { 
+							print '<span class="footer-contact-fax"><strong>Fax: </strong>'.$options['organization_fax'].'</span><br/>'; } ?>
 					</p>
 				</div>
 				<p class="footer-email">Questions? Email us: <a href="mailto:askhr@ucf.edu">AskHR@ucf.edu</a></p>
