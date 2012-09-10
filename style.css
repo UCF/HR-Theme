@@ -54,6 +54,25 @@ select#UCFHBHeaderLinks {
 	height: 30px;
 }
 
+.contact-wrap { 
+	width: 100%; 
+	background: #fdfbef; 
+	-webkit-box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
+	margin-bottom: 25px;
+}
+.contact-wrap .contact-info { padding: 20px; }
+.contact-wrap .contact-info .contact-header {
+	display:block;
+	margin-bottom: 10px;
+}
+.contact-wrap .contact-info .contact-phone { display: block; margin-top: 15px; }
+.contact-wrap .contact-info .contact-fax { display:block; margin-bottom: 5px; margin-top: -15px; }
+
+.contact-email { color: #0088CC; font-size: 19px; font-weight: 200; text-align: center; line-height: 28px; }
+.contact-email a { text-decoration:underline; font-size: 26px; font-weight: 400; }
+
+
 /*#home .site-image img{display: block; margin: 0; border: 5px solid #fff;}*/
 #home .description{font-size: 16px; font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";}
 #home .content p,
@@ -103,27 +122,11 @@ select#UCFHBHeaderLinks {
 #below-the-fold h2{font-size: 18px; margin: 0 0 1em 0; padding: 0;}
 
 #below-the-fold h2.hr-news-header { 
-	/* TODO: find web-safe font alternative */
 	font-family: 'Nixie One', Rockwell, Courier, serif; 
 	font-weight: 400;
 	font-size: 30px;
 }
-#below-the-fold .footer-contact-wrap { 
-	width: 100%; 
-	background: #fdfbef; 
-	-webkit-box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
-	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
-	margin-bottom: 25px;
-}
-#below-the-fold .footer-contact { padding: 20px; }
-#below-the-fold .footer-contact .footer-contact-header {
-	display:block;
-	margin-bottom: 10px;
-}
-#below-the-fold .footer-contact .footer-contact-phone { display: block; margin-top: 15px; }
-#below-the-fold .footer-contact .footer-contact-fax { display:block; margin-bottom: 5px; }
-#below-the-fold .footer-email { color: #0088CC; font-size: 19px; font-weight: 200; text-align: center; line-height: 28px; }
-#below-the-fold .footer-email a { text-decoration:underline; font-size: 26px; font-weight: 400; }
+
 
 .flickr-stream{padding: 0; margin: 0;}
 .flickr-stream li{list-style-type: none; float: left; margin: 1px; padding: 0;}

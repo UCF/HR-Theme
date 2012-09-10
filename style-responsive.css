@@ -23,8 +23,8 @@
 	
 	#header .search-form #s { width: 54% !important; }
 	
-	#below-the-fold .footer-email { font-size: 18px; }
-	#below-the-fold .footer-email a { font-size: 23px; }
+	.contact-email { font-size: 18px; }
+	.contact-email a { font-size: 23px; }
 }
 
 @media (width: 768px) {
@@ -112,7 +112,6 @@
 }
 
 @media (max-width: 480px) {
-	
 	.navbar .menu {
 		padding: 0;
 	}

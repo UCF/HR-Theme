@@ -41,6 +41,8 @@
 									<?php endif;?>
 								</div>
 								<?php endif;?>
+								<br/>
+								&copy; University of Central Florida
 						<?php endif;?>
 					</div>
 				</div>

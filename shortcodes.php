@@ -128,6 +128,49 @@ function sc_person_picture_list($atts) {
 }
 add_shortcode('person-picture-list', 'sc_person_picture_list');
 
+
+/**
+ * Output site contact info in a styled box.
+ **/
+function sc_contact_info() { 
+	$options = get_option(THEME_OPTIONS_NAME);
+	ob_start(); ?>
+	<div class="contact-wrap">
+		<p class="contact-info">
+			<span class="contact-header">Our Contact:</span>
+			<?php if($options['organization_name']) { print '<strong>'.$options['organization_name'].'</strong><br/>'; } ?>
+			<?php if($options['organization_addr_str']) { print $options['organization_addr_str'].'<br/>'; } ?>
+			<?php if($options['organization_addr_str_2']) { print $options['organization_addr_str_2'].'<br/>'; } ?>
+			<?php if($options['organization_addr_csz']) { print $options['organization_addr_csz'].'<br/>'; } ?>
+			<?php if($options['organization_phone']) { 
+				print '<span class="contact-phone"><strong>Phone: </strong>'.$options['organization_phone'].'</span><br/>'; } ?>
+			<?php if($options['organization_fax']) { 
+				print '<span class="contact-fax"><strong>Fax: </strong>'.$options['organization_fax'].'</span><br/>'; } ?>
+		</p>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode('site-contact-info', 'sc_contact_info');
+
+
+/**
+ * Output site contact email in a consistent stylized format.
+ **/
+function sc_contact_email() {
+	$options = get_option(THEME_OPTIONS_NAME);
+	ob_start();
+	
+	if($options['site_contact']) { 
+		print '<p class="contact-email">Questions? Email us: <a href="mailto:'.$options['site_contact'].'">'.$options['site_contact'].'</a></p>'; 
+	}
+	else { print 'No site contact email provided.'; }
+	
+	return ob_get_clean(); 
+}
+add_shortcode('site-contact-email', 'sc_contact_email');
+
+
 /**
  * Post search
  *
