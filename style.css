@@ -54,24 +54,6 @@ select#UCFHBHeaderLinks {
 	height: 30px;
 }
 
-.contact-wrap { 
-	width: 100%; 
-	background: #fdfbef; 
-	-webkit-box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
-	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
-	margin-bottom: 25px;
-}
-.contact-wrap .contact-info { padding: 20px; }
-.contact-wrap .contact-info .contact-header {
-	display:block;
-	margin-bottom: 10px;
-}
-.contact-wrap .contact-info .contact-phone { display: block; margin-top: 15px; }
-.contact-wrap .contact-info .contact-fax { display:block; margin-bottom: 5px; margin-top: -15px; }
-
-.contact-email { color: #0088CC; font-size: 19px; font-weight: 200; text-align: center; line-height: 28px; }
-.contact-email a { text-decoration:underline; font-size: 26px; font-weight: 400; }
-
 
 /*#home .site-image img{display: block; margin: 0; border: 5px solid #fff;}*/
 #home .description{font-size: 16px; font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";}
@@ -111,7 +93,7 @@ select#UCFHBHeaderLinks {
 #footer-menu{ }
 #footer-menu li a { font-size: 14px; }
 #footer-widget-wrap { margin-top: 16px; }
-#footer { border-top: 1px solid #e1e1e1; margin-left: -10px; }
+#footer { border-top: 1px solid #e1e1e1; margin-left: -10px; margin-bottom: 50px; }
 #footer #footer-logo, #footer .footer-contact { float: left; }
 #footer .footer-contact { margin-top: 11px; margin-left: 30px; width: 50%; }
 #footer .info{position: relative; top: -10px;}
@@ -177,5 +159,54 @@ select#UCFHBHeaderLinks {
 .post-type-search-sorting {margin-bottom:5px;}
 
 
-.page-content article, .page-content article p, .page-content article a { font-size: 14px; line-height: 22px; }
+.page-content { margin-bottom: 90px; }
+.page-content article, .page-content article p, .page-content article a, .page-content article ul li { font-size: 14px; line-height: 22px; }
 .page-content article h1 { font-family: Georgia, Times, serif; font-size: 30px; font-weight: normal; margin-top: 15px; margin-bottom: 10px; }
+.page-content article h3 { font-size: 20px; }
+.page-content article h4 { font-size: 16px; }
+.page-content article h5 { font-size: 14px; line-height: 18px; margin-bottom: 20px; }
+.page-content article h6 { }
+.page-content article .alt { color: #033c7d; margin-bottom: 4px; }
+.page-content article a, .page-content article a:hover { color: #a90606; text-decoration: underline; }
+
+
+.table th { color: #4a7eab; }
+.table th, .table td { border-top: 1px solid #a8bfd3; }
+
+
+
+/* Shortcodes, various re-usable things with custom styles */
+.box { 
+	padding: 15px 20px;
+	background: #fafae9; 
+	-moz-box-shadow: 1px 2px 8px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 1px 2px 8px rgba(0, 0, 0, .2);
+	box-shadow: 1px 2px 8px rgba(0, 0, 0, .2); 
+}
+.box h1, .box h2, .box h3, .box h4, .box h5, .box h6 { color: #a70303; margin-bottom: 5px; }
+.box h1 { }
+.box h2 { }
+.box h3 { }
+.box h4 { font-size: 16px; }
+
+
+.underline { border-bottom: 1px solid #a8bfd3; margin-bottom: 10px; padding-bottom: 4px; }
+
+
+.contact-wrap { 
+	width: 100%; 
+	background: #fdfbef; 
+	-webkit-box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
+	box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, .2);
+	margin-bottom: 25px;
+}
+.contact-wrap .contact-info { padding: 20px; line-height: 18px !important; }
+.contact-wrap .contact-info .contact-header {
+	display:block;
+	margin-bottom: 10px;
+}
+.contact-wrap .contact-info .contact-phone { display: block; margin-top: 15px; }
+.contact-wrap .contact-info .contact-fax { display:block; margin-bottom: 5px; margin-top: -15px; }
+
+.contact-email { color: #0088CC; font-size: 19px !important; font-weight: 200; text-align: center; line-height: 28px !important; }
+.contact-email a { color: #0088CC !important;text-decoration:underline; font-size: 26px !important; font-weight: 400; }

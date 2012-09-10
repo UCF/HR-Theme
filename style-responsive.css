@@ -23,8 +23,8 @@
 	
 	#header .search-form #s { width: 54% !important; }
 	
-	.contact-email { font-size: 18px; }
-	.contact-email a { font-size: 23px; }
+	.contact-email { font-size: 18px !important; }
+	.contact-email a { font-size: 22px !important; }
 }
 
 @media (width: 768px) {
