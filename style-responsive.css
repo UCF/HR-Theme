@@ -1,9 +1,21 @@
+@media (min-width: 1200px) {
+	#header .search-form #s { width: 71% !important; }
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+	#header .search-form #s { width: 65% !important; }
+}
+
 @media (max-width: 979px) {
 	#UCFHBSearch_and_links { display: none; }
 	#UCFHBHeader div.UCFHBWrapper { width: 100%; }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 979px) {
+	#header .search-form #s { width: 54% !important; }
+}
+
+@media (max-width: 767px) {	
 	#header { margin-left: 0; }
 	
 	#home .description { margin-top: 10px; }

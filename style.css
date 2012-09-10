@@ -45,7 +45,7 @@ select#UCFHBHeaderLinks {
 
 .search-form label { display: inline; font-weight: bold; font-size: 18px; margin-right: 5px; }
 .search-form #s {
-	width:55%;
+	width:100%;
 	display:block;
 	box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -71,7 +71,7 @@ select#UCFHBHeaderLinks {
 #header{margin-bottom: .5em;margin-top:40px; overflow: auto; padding-bottom: 0;}
 #header h1 a { font-weight: 200; font-size: 38px; }
 #header #header-search { margin-top: 4px; }
-#header #header-search #s { display: inline; }
+#header #header-search #s { display: inline; width:65%; }
 
 .menu.horizontal li { margin-right: 8px; }
 .menu.horizontal li:after { content: ""; }
