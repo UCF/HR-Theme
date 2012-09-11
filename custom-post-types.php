@@ -486,17 +486,23 @@ class Page extends CustomPostType {
 		$prefix = $this->options('name').'_';
 		return array(
 			array(
+				'name' => 'Subheader',
+				'desc' => '(Optional) Add text that will go directly before the page title.',
+				'id'   => $prefix.'subheader',
+				'type' => 'textarea',
+			),
+			array(
 				'name' => 'Hide Lower Section',
 				'desc' => 'This section normally contains the Flickr, News and Events widgets. The footer will not be hidden',
 				'id'   => $prefix.'hide_fold',
 				'type' => 'checkbox',
 			),
-				array(
-					'name' => 'Stylesheet',
-					'desc' => '',
-					'id' => $prefix.'stylesheet',
-					'type' => 'file',
-				),
+			array(
+				'name' => 'Stylesheet',
+				'desc' => '',
+				'id' => $prefix.'stylesheet',
+				'type' => 'file',
+			),
 		);
 	}
 }
