@@ -235,26 +235,24 @@ function sc_post_type_search($params=array(), $content='') {
 		// if a specific taxonomy term is specified, get just its children
 		$termchildren = get_term_children(get_term_by('name', $params['taxonomy_term'], $params['taxonomy'])->term_id, $params['taxonomy']);
 		
-		$posts = get_posts(array(
-			'numberposts' => -1,
-			'post_type'   => $params['post_type_name'],
-			'tax_query'   => array(
-				array(
-					'taxonomy' => $params['taxonomy'],
-					'field'    => 'id',
-					'terms'    => $termchildren,
-				)
-			),
-			'orderby'     => $params['order_by'],
-			'order'       => $params['order']
-		));
-		
-		if(count($posts) == 0 && $params['show_empty_sections']) {
-			foreach ($termchildren as $term) {
+		foreach ($termchildren as $term) {
+			$posts = get_posts(array(
+				'numberposts' => -1,
+				'post_type'   => $params['post_type_name'],
+				'tax_query'   => array(
+					array(
+						'taxonomy' => $params['taxonomy'],
+						'field'    => 'id',
+						'terms'    => $term,
+					)
+				),
+				'orderby'     => $params['order_by'],
+				'order'       => $params['order']
+			));
+			
+			if(count($posts) == 0 && $params['show_empty_sections']) {
 				$by_term[get_term_by('id', $term, $params['taxonomy'])->name] = array();
-			}
-		} else {
-			foreach ($termchildren as $term) {
+			} else {
 				$by_term[get_term_by('id', $term, $params['taxonomy'])->name] = $posts;
 			}
 		}
