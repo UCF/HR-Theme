@@ -283,7 +283,7 @@ Generic.PostTypeSearch = function($) {
 mapWidgetResizing = function($) {
 	var iframe = $('iframe'),
 		iframeSrc = iframe.attr('src');
-	if (iframeSrc.indexOf('map.ucf.edu/widget') > -1) {
+	if (iframe.length > 0 && iframeSrc.indexOf('map.ucf.edu/widget') > -1) {
 		
 		var resizeWidget = function() {
 			var iframeWidth = iframe.css('width').slice(0, -2),
