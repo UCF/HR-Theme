@@ -492,10 +492,10 @@ class Page extends CustomPostType {
 				'type' => 'textarea',
 			),
 			array(
-				'name' => 'Hide Lower Section',
-				'desc' => 'This section normally contains the Flickr, News and Events widgets. The footer will not be hidden',
-				'id'   => $prefix.'hide_fold',
-				'type' => 'checkbox',
+				'name' => 'Post Search Taxonomy_Term',
+				'desc' => '(Optional) By default, pages with a two-column layout will pull post search results by the taxonomy term that matches the current page title.  To pull posts from a custom taxonomy term, type the term here.',
+				'id'   => $prefix.'taxonomy_term',
+				'type' => 'text',
 			),
 			array(
 				'name' => 'Stylesheet',
