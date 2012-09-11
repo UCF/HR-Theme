@@ -110,4 +110,29 @@ class OrganizationalGroups extends CustomTaxonomy
 		$hierarchical = True;
 } // END class 
 
+
+/**
+ * Describes sections of a page (for custom post search)
+ *
+ * @author Jo Greybill
+ **/
+class OrganizationalGroups extends CustomTaxonomy
+{
+	public
+		$name               = 'pg_sections',
+		$general_name       = 'Page Sections',
+		$singular_name      = 'Page Section',
+		$search_items       = 'Search Page Sections',
+		$popular_items      = 'Popular Page Sections',
+		$all_times          = 'All Page Sections',
+		$parent_item        = 'Parent Page Section',
+		$parent_item_colon  = 'Parent Page Section:',
+		$edit_item          = 'Edit Page Section',
+		$update_item        = 'Update Page Section',
+		$add_new_item       = 'Add New Page Section',
+		$new_item_name      = 'New Tag Page Section',
+		
+		$hierarchical = True;
+} // END class 
+
 ?>
