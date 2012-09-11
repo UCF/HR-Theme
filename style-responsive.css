@@ -2,6 +2,8 @@
 	#header .search-form #s { width: 71% !important; }
 	
 	#header-menu li#menu-item-76 { margin-left: 287px; }
+	
+	.post-type-search-form input { width: 235px; }
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -20,8 +22,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-	
 	#header .search-form #s { width: 54% !important; }
+	
+	.post-type-search-form input { width: 132px; }
 	
 	.contact-email { font-size: 18px !important; }
 	.contact-email a { font-size: 22px !important; }
@@ -33,7 +36,6 @@
 }
 
 @media (max-width: 768px) {	
-
 	#footer { margin-left: 0; }
 }
 
@@ -114,7 +116,8 @@
 
 
 	.box { height: auto !important; margin-bottom: 20px; }
-
+	
+	.post-type-search-form input { width: 98%; }
 }
 
 @media (max-width: 480px) {
@@ -166,4 +169,6 @@
 	
 	.search-form label { font-size: 14px; }
 	#header .search-form #s { width: 175px !important; padding-left: 2px; }
+	
+	.post-type-search-form input { width: 100%; }
 }
