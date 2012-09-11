@@ -114,7 +114,8 @@ Config::$custom_post_types = array(
 );
 
 Config::$custom_taxonomies = array(
-	'OrganizationalGroups'
+	'OrganizationalGroups',
+	'PgSections'
 );
 
 Config::$body_classes = array('default',);

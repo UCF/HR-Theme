@@ -116,7 +116,7 @@ class OrganizationalGroups extends CustomTaxonomy
  *
  * @author Jo Greybill
  **/
-class OrganizationalGroups extends CustomTaxonomy
+class PgSections extends CustomTaxonomy
 {
 	public
 		$name               = 'pg_sections',
