@@ -181,6 +181,7 @@ function sc_post_type_search($params=array(), $content='') {
 	$defaults = array(
 		'post_type_name'         => 'post',
 		'taxonomy'               => 'category',
+		'taxonomy_term'			 => '',
 		'show_empty_sections'    => false,
 		'non_alpha_section_name' => 'Other',
 		'column_width'           => 'span4',
@@ -229,7 +230,11 @@ function sc_post_type_search($params=array(), $content='') {
 
 	// Split up this post type's posts by term
 	$by_term = array();
-	foreach(get_terms($params['taxonomy']) as $term) {
+	
+	if ($params['taxonomy_term'] !== '') {
+		// if a specific taxonomy term is specified, get just its children
+		$termchildren = get_term_children(get_term_by('name', $params['taxonomy_term'], $params['taxonomy'])->term_id, $params['taxonomy']);
+		
 		$posts = get_posts(array(
 			'numberposts' => -1,
 			'post_type'   => $params['post_type_name'],
@@ -237,17 +242,44 @@ function sc_post_type_search($params=array(), $content='') {
 				array(
 					'taxonomy' => $params['taxonomy'],
 					'field'    => 'id',
-					'terms'    => $term->term_id
+					'terms'    => $termchildren,
 				)
 			),
 			'orderby'     => $params['order_by'],
 			'order'       => $params['order']
 		));
-
+		
 		if(count($posts) == 0 && $params['show_empty_sections']) {
-			$by_term[$term->name] = array();
+			foreach ($termchildren as $term) {
+				$by_term[get_term_by('id', $term, $params['taxonomy'])->name] = array();
+			}
 		} else {
-			$by_term[$term->name] = $posts;
+			foreach ($termchildren as $term) {
+				$by_term[get_term_by('id', $term, $params['taxonomy'])->name] = $posts;
+			}
+		}
+	}
+	else {
+		foreach(get_terms($params['taxonomy']) as $term) {
+			$posts = get_posts(array(
+				'numberposts' => -1,
+				'post_type'   => $params['post_type_name'],
+				'tax_query'   => array(
+					array(
+						'taxonomy' => $params['taxonomy'],
+						'field'    => 'id',
+						'terms'    => $term->term_id
+					)
+				),
+				'orderby'     => $params['order_by'],
+				'order'       => $params['order']
+			));
+	
+			if(count($posts) == 0 && $params['show_empty_sections']) {
+				$by_term[$term->name] = array();
+			} else {
+				$by_term[$term->name] = $posts;
+			}
 		}
 	}
 
