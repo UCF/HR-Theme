@@ -1,7 +1,7 @@
-.page-content { margin-bottom: 30px; }
+.page-content { margin-bottom: 30px; margin-top: 80px; }
 
 .page-content #leftcol { }
-.page-content #leftcol iframe { padding: 10px; -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1); }
+.page-content #leftcol iframe { padding: 15px; -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1); }
 
 .page-content #rightcol { margin-left: 40px; }
 
@@ -10,6 +10,15 @@
 .page-content .addresshead { font-size: 14px; font-weight: bold; margin-top: 15px; margin-bottom: 6px; }
 .page-content .address { font-size: 16px; font-weight: 200; letter-spacing: 0.4px; margin-bottom: 6px; }
 
+@media (min-width: 1200px) {
+	.page-content #leftcol iframe { width: 540px !important; height: 280px; }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.page-content #leftcol iframe { width: 322px !important; height: 175px !important; }
+}
+
 @media (max-width: 767px) {	
+	.page-content #leftcol iframe { width: 100% !important; height: auto !important; }
 	.page-content #rightcol { margin-left: 0; }
 }
