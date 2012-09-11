@@ -159,9 +159,13 @@ select#UCFHBHeaderLinks {
 .post-type-search-sorting {margin-bottom:5px;}
 
 
+#page-top { font-size: 18px; line-height: 24px; font-weight: 200; margin-bottom: 40px; }
+#page-top h1 { font-family: Georgia, Times, serif; font-size: 30px; font-weight: normal; margin-top: 15px; margin-bottom: 10px; }
+
+
 .page-content { margin-bottom: 90px; }
 .page-content article, .page-content article p, .page-content article a, .page-content article ul li { font-size: 14px; line-height: 22px; }
-.page-content article h1 { font-family: Georgia, Times, serif; font-size: 30px; font-weight: normal; margin-top: 15px; margin-bottom: 10px; }
+.page-content article h1 { font-size: 30px; }
 .page-content article h3 { font-size: 20px; }
 .page-content article h4 { font-size: 16px; }
 .page-content article h5 { font-size: 14px; line-height: 18px; margin-bottom: 20px; }
