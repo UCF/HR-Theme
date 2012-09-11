@@ -81,12 +81,12 @@ select#UCFHBHeaderLinks {
 
 /* Note - these styles are specific to menu item IDs; if a link is moved
 	or added on the menu, these IDs may need to be updated */
-#header-menu li#menu-item-76 { margin-left: 57px; }
+#header-menu li#menu-item-76 { margin-left: 67px; }
 #header-menu li#menu-item-76:after { content: "|"; }
-#header-menu li#menu-item-76 a, #header-menu li#menu-item-75 a { 
+#header-menu li#menu-item-76 a, #header-menu li.last a { 
 	font-size: 11px; text-transform: uppercase; font-weight: bold;
 }
-#header-menu li#menu-item-76 a:hover, #header-menu li#menu-item-75 a:hover {
+#header-menu li#menu-item-76 a:hover, #header-menu li.last a:hover {
 	color: #ED1C24;
 }
 
@@ -221,7 +221,8 @@ select#UCFHBHeaderLinks {
 }
 .post-type-search-term>div { margin-bottom: 10px; }
 .post-type-search-term h3 { font-size: 11px !important; color: #999; text-transform: uppercase; }
-.post-type-search-term ul { list-style-type: none; margin-left: 0; margin-bottom: 0; }
+.post-type-search-term ul { list-style-type: none; margin-left: 0; margin-bottom: 0; padding-right: 22px; }
+.page-content .post-type-search-term ul li { line-height: 15px !important; margin-bottom: 5px; }
 .post-type-search-term ul li a { font-size: 13px; color: #0086cb; text-decoration: none; }
 .post-type-search-term ul li a:hover { color: #0086cb; text-decoration: underline; }
 

@@ -1,7 +1,7 @@
 @media (min-width: 1200px) {
 	#header .search-form #s { width: 71% !important; }
 	
-	#header-menu li#menu-item-76 { margin-left: 287px; }
+	#header-menu li#menu-item-76 { margin-left: 297px; }
 	
 	.post-type-search-form input { width: 235px; }
 }
@@ -15,7 +15,7 @@
 	#UCFHBHeader div.UCFHBWrapper { width: 100%; }
 	
 	#header-menu li { margin-bottom: 8px; }
-	#header-menu li#menu-item-76, #header-menu li#menu-item-75 {
+	#header-menu li#menu-item-76, #header-menu li.last {
 		margin-bottom: 16px;
 	}
 	#header-menu li#menu-item-76 { margin-left: 0; }
@@ -159,10 +159,10 @@
 	#header { margin-top: 20px; }
 	#header h1 a { font-size: 32px; }
 	
-	#header-menu li#menu-item-76 a, #header-menu li#menu-item-75 a {
+	#header-menu li#menu-item-76 a, #header-menu li.last a {
 		text-transform: none; font-size: 13px;
 	}
-	#header-menu li#menu-item-76 a:hover, #header-menu li#menu-item-75 a:hover {
+	#header-menu li#menu-item-76 a:hover, #header-menu li.last a:hover {
 		color: #fff;
 	}
 	#header-menu li#menu-item-76:after { content: none; }
