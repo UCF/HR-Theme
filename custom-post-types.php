@@ -244,14 +244,14 @@ abstract class CustomPostType{
 }
 
 
-class Document extends CustomPostType{
+class ResourceLink extends CustomPostType{
 	public
-		$name           = 'document',
-		$plural_name    = 'Documents',
-		$singular_name  = 'Document',
-		$add_new_item   = 'Add New Document',
-		$edit_item      = 'Edit Document',
-		$new_item       = 'New Document',
+		$name           = 'resourcelink',
+		$plural_name    = 'Resource Links',
+		$singular_name  = 'Resource Link',
+		$add_new_item   = 'Add New Resource Link',
+		$edit_item      = 'Edit Resource Link',
+		$new_item       = 'New Resource Link',
 		$use_title      = True,
 		$use_editor     = False,
 		$use_shortcode  = True,

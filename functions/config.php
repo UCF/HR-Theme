@@ -106,7 +106,7 @@ define('CB_DOMAIN', $theme_options['cb_domain']);
  **/
 Config::$custom_post_types = array(
 	'Video',
-	'Document',
+	'ResourceLink',
 	'Publication',
 	'Page',
 	'Person',
