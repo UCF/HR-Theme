@@ -322,6 +322,17 @@ class ResourceLink extends CustomPostType{
 		return ($x) ? $x : $y;
 	}
 	
+	/*
+	static function is_external($form) {
+		if () {
+			return 'internal';
+		}
+		else {
+			return 'external';
+		}
+	}
+	*/
+	
 	
 	/**
 	 * Handles output for a list of objects, can be overridden for descendants.
@@ -339,7 +350,7 @@ class ResourceLink extends CustomPostType{
 		?>
 		<ul class="nobullet <?php if($css_classes):?><?=$css_classes?><?php else:?><?=$class->options('name')?>-list<?php endif;?>">
 			<?php foreach($objects as $o):?>
-			<li class="resource-link <?=$class_name::get_document_application($o)?>">
+			<li class="resource-link <?=$class_name::get_document_application($o)?> <?=$class_name::is_external($o)?>">
 				<?=$class->toHTML($o)?>
 			</li>
 			<?php endforeach;?>
@@ -573,11 +584,17 @@ class Person extends CustomPostType
 					'type'    => 'text',
 				),
 				array(
+					'name'    => __('Fax'),
+					'desc'    => __(''),
+					'id'      => $this->options('name').'_fax',
+					'type'    => 'text',
+				),/*
+				array(
 					'name'    => __('Email'),
 					'desc'    => __(''),
 					'id'      => $this->options('name').'_email',
 					'type'    => 'text',
-				),
+				),*/
 				array(
 					'name'    => __('Order By Name'),
 					'desc'    => __('Name used for sorting. Leaving this field blank may lead to an unexpected sort order.'),
@@ -617,13 +634,13 @@ class Person extends CustomPostType
 							<th scope="col" class="name">Name</th>
 							<th scope="col" class="job_title">Title</th>
 							<th scope="col" class="phones">Phone</th>
-							<th scope="col" class="email">Email</th>
+							<th scope="col" class="fax">Fax</th>
 						</tr>
 					</thead>
 					<tbody>
 				<?
 				foreach($people as $person) { 
-					$email = get_post_meta($person->ID, 'person_email', True); 
+					$fax = get_post_meta($person->ID, 'person_fax', True); 
 					$link = ($person->post_content == '') ? False : True; ?>
 						<tr>
 							<td class="name">
@@ -640,7 +657,7 @@ class Person extends CustomPostType
 								<?php } if($this->get_phones($person)) {?>
 									<ul class="unstyled"><?php foreach($this->get_phones($person) as $phone) { ?><li><?=$phone?></li><?php } ?></ul>
 								<?php } if(($link) && ($this->get_phones($person))) {?></a><?php }?></td>
-							<td class="email"><?=(($email != '') ? '<a href="mailto:'.$email.'">'.$email.'</a>' : '')?></td>
+							<td class="fax"><?=(($fax != '') ? '<a href="mailto:'.$fax.'">'.$fax.'</a>' : '')?></td>
 						</tr>
 				<? } ?>
 				</tbody>
