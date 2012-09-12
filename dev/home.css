@@ -6,7 +6,9 @@
 .page-content #rightcol { margin-left: 40px; }
 
 .page-content h2 { font-size: 38px; margin-top: 20px; margin-bottom: 10px; }
-.page-content .subhead { font-size: 18px; font-weight: 200; letter-spacing: 0.4px; line-height: 22px; }
+.page-content .subhead, .page-content .subhead a { font-size: 18px; font-weight: 200; letter-spacing: 0.4px; line-height: 22px; }
+.page-content .subhead a { color: #aa0909; text-decoration: underline; }
+.page-content .subhead a:hover { color: #aa0909; }
 .page-content .addresshead { font-size: 14px; font-weight: bold; margin-top: 15px; margin-bottom: 6px; }
 .page-content .address { font-size: 16px; font-weight: 200; letter-spacing: 0.4px; margin-bottom: 6px; }
 
