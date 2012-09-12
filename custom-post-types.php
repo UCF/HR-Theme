@@ -339,7 +339,7 @@ class ResourceLink extends CustomPostType{
 		?>
 		<ul class="nobullet <?php if($css_classes):?><?=$css_classes?><?php else:?><?=$class->options('name')?>-list<?php endif;?>">
 			<?php foreach($objects as $o):?>
-			<li class="document <?=$class_name::get_document_application($o)?>">
+			<li class="resource-link <?=$class_name::get_document_application($o)?>">
 				<?=$class->toHTML($o)?>
 			</li>
 			<?php endforeach;?>
@@ -354,8 +354,8 @@ class ResourceLink extends CustomPostType{
 	 * Outputs this item in HTML.  Can be overridden for descendants.
 	 **/
 	public function toHTML($object){
-		$title = Document::get_title($object);
-		$url   = Document::get_url($object);
+		$title = ResourceLink::get_title($object);
+		$url   = ResourceLink::get_url($object);
 		$html = "<a href='{$url}'>{$title}</a>";
 		return $html;
 	}
