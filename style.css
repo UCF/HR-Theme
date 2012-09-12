@@ -93,7 +93,7 @@ select#UCFHBHeaderLinks {
 #footer-menu{ }
 #footer-menu li a { font-size: 14px; }
 #footer-widget-wrap { margin-top: 16px; }
-#footer { border-top: 1px solid #e1e1e1; margin-left: -10px; margin-bottom: 50px; padding-top: 20px; }
+#footer { border-top: 1px solid #e1e1e1; margin-bottom: 50px; padding-top: 20px; }
 #footer #footer-logo, #footer .footer-contact { float: left; }
 #footer .footer-contact { margin-top: 11px; margin-left: 30px; width: 50%; }
 #footer .info{position: relative; top: -10px;}
