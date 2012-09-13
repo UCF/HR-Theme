@@ -8,9 +8,11 @@
 ?>
 <?php get_header(); ?>
 	<div class="row page-content" id="search-results">
-		<div class="span9">
+		<div class="span12" id="page-top">
+			<h1>Search Results</h1>
+		</div>
+		<div class="span12">
 			<article>
-				<h1>Search Results</h1>
 				<?php if(count($results['items'])):?>
 				<ul class="result-list">
 					<?php foreach($results['items'] as $result):?>
@@ -43,20 +45,17 @@
 				<?php endif;?>
 			</article>
 		</div>
-		
-		<div id="sidebar" class="span3">
-			<?=get_sidebar();?>
-		</div>
 	</div>
-	<?php get_template_part('includes/below-the-fold'); ?>
 <?php get_footer();?>
 
 <?php else:?>
 <?php get_header(); the_post();?>
 	<div class="row page-content" id="search-results">
-		<div class="span9">
+		<div class="span12" id="page-top">
+			<h1>Search Results</h1>
+		</div>
+		<div class="span12">
 			<article>
-				<h1>Search Results</h1>
 				<?php if(have_posts()):?>
 					<ul class="result-list">
 					<?php while(have_posts()): the_post();?>
@@ -74,11 +73,6 @@
 				<?php endif;?>
 			</article>
 		</div>
-		
-		<div id="sidebar" class="span3">
-			<?=get_sidebar();?>
-		</div>
 	</div>
-	<?php get_template_part('includes/below-the-fold'); ?>
 <?php get_footer();?>
 <?php endif;?>
