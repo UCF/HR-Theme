@@ -642,17 +642,17 @@ class Person extends CustomPostType
 				foreach($people as $person) { 
 					$link = ($person->post_content == '') ? False : True; ?>
 						<tr>
-							<td class="name">
+							<td class="name span6">
 								<?if($link) {?><a href="<?=get_permalink($person->ID)?>"><?}?>
 									<?=$this->get_name($person)?>
 								<?if($link) {?></a><?}?>
 							</td>
-							<td class="job_title">
+							<td class="job_title span4">
 								<?if($link) {?><a href="<?=get_permalink($person->ID)?>"><?}?>
 								<?=get_post_meta($person->ID, 'person_jobtitle', True)?>
 								<?if($link) {?></a><?}?>
 							</td> 
-							<td class="phones"><?php if(($link) && ($this->get_phones($person))) {?><a href="<?=get_permalink($person->ID)?>">
+							<td class="phones span2"><?php if(($link) && ($this->get_phones($person))) {?><a href="<?=get_permalink($person->ID)?>">
 								<?php } if($this->get_phones($person)) {?>
 									<ul class="unstyled"><?php foreach($this->get_phones($person) as $phone) { ?><li><?=$phone?></li><?php } ?></ul>
 								<?php } if(($link) && ($this->get_phones($person))) {?></a><?php }?></td>
