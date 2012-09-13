@@ -606,10 +606,17 @@ class Person extends CustomPostType
 		}
 
 	public function get_objects($options=array()){
-		$options['order']    = 'ASC';
-		$options['orderby']  = 'person_orderby_name';
+		$options['order']    = 'DESC';
+		$options['orderby']  = 'meta_value';
 		$options['meta_key'] = 'person_orderby_name';
 		return parent::get_objects($options);
+	}
+
+	public function shortcode($attr=array()){
+		$attr['type']		= 'person';
+		$attr['order']		= 'ASC';
+		$attr['orderby']	= 'post_date';
+		return parent::shortcode($attr);
 	}
 
 	public static function get_name($person) {
