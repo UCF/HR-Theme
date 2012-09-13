@@ -339,16 +339,21 @@ class ResourceLink extends CustomPostType{
 		// Pages take precedence over files.
 		$url = get_post_meta($form->ID, $prefix.'_url', True);
 		$file = wp_get_attachment_url(get_post_meta($form->ID, $prefix.'_file', True));
-		$page = get_permalink(get_post_meta($form->ID, $prefix.'_page', True));
+		$page = get_post_meta($form->ID, $prefix.'_page', True);
 		
 		if (!$url and !$file and !$page){
 			return '#';
 		}
 		
-		$val = ($page) ? $page : $file;
-		$val = ($url) ? $url : $val;
-		
-		return $val;
+		if ($url) {
+			return $url;
+		}
+		elseif ($page) {
+			return get_permalink($page);
+		}
+		else {
+			return $file;
+		}
 	}
 	
 	/*
