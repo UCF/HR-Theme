@@ -582,12 +582,6 @@ class Person extends CustomPostType
 					'desc'    => __('Separate multiple entries with commas.'),
 					'id'      => $this->options('name').'_phones',
 					'type'    => 'text',
-				),
-				array(
-					'name'    => __('Fax'),
-					'desc'    => __(''),
-					'id'      => $this->options('name').'_fax',
-					'type'    => 'text',
 				),/*
 				array(
 					'name'    => __('Email'),
@@ -641,13 +635,11 @@ class Person extends CustomPostType
 							<th scope="col" class="name">Name</th>
 							<th scope="col" class="job_title">Title</th>
 							<th scope="col" class="phones">Phone</th>
-							<th scope="col" class="fax">Fax</th>
 						</tr>
 					</thead>
 					<tbody>
 				<?
 				foreach($people as $person) { 
-					$fax = get_post_meta($person->ID, 'person_fax', True); 
 					$link = ($person->post_content == '') ? False : True; ?>
 						<tr>
 							<td class="name">
@@ -664,7 +656,6 @@ class Person extends CustomPostType
 								<?php } if($this->get_phones($person)) {?>
 									<ul class="unstyled"><?php foreach($this->get_phones($person) as $phone) { ?><li><?=$phone?></li><?php } ?></ul>
 								<?php } if(($link) && ($this->get_phones($person))) {?></a><?php }?></td>
-							<td class="fax"><?=(($fax != '') ? $fax : '')?></td>
 						</tr>
 				<? } ?>
 				</tbody>
