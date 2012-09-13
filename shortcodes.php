@@ -247,7 +247,7 @@ function sc_post_type_search($params=array(), $content='') {
 	
 	if ($params['taxonomy_term'] !== '') {
 		// if a specific taxonomy term is specified, get just its children
-		$termchildren = get_term_children(get_term_by('name', $params['taxonomy_term'], $params['taxonomy'])->term_id, $params['taxonomy']);
+		$termchildren = get_term_children(get_term_by('slug', $params['taxonomy_term'], $params['taxonomy'])->term_id, $params['taxonomy']);
 		foreach ($termchildren as $term) {
 			$args['tax_query'][0]['terms'] = $term;
 			$posts = get_posts($args);

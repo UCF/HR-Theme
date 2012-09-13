@@ -504,7 +504,7 @@ class Page extends CustomPostType {
 			),
 			array(
 				'name' => 'Post Search Taxonomy_Term',
-				'desc' => '(Optional) By default, pages with a two-column layout will pull post search results by the taxonomy term that matches the current page title.  To pull posts from a custom taxonomy term, type the term here.',
+				'desc' => '(Optional) By default, pages with a two-column layout will pull post search results by the taxonomy term that matches the current page slug, followed by "-page".  To pull posts from a different taxonomy term, type the term slug (e.g. "some-term-name") here.',
 				'id'   => $prefix.'taxonomy_term',
 				'type' => 'text',
 			),
