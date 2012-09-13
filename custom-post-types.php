@@ -657,7 +657,7 @@ class Person extends CustomPostType
 								<?php } if($this->get_phones($person)) {?>
 									<ul class="unstyled"><?php foreach($this->get_phones($person) as $phone) { ?><li><?=$phone?></li><?php } ?></ul>
 								<?php } if(($link) && ($this->get_phones($person))) {?></a><?php }?></td>
-							<td class="fax"><?=(($fax != '') ? '<a href="mailto:'.$fax.'">'.$fax.'</a>' : '')?></td>
+							<td class="fax"><?=(($fax != '') ? $fax : '')?></td>
 						</tr>
 				<? } ?>
 				</tbody>
