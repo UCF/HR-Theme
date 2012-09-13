@@ -258,17 +258,40 @@ class ResourceLink extends CustomPostType{
 		$use_metabox    = True,
 		$taxonomies     = array('post_tag', 'pg_sections');
 	
+	public static function get_page_dropdown() {
+		$args = array(
+			'numberposts' 	=> -1,
+			'post_type'		=> 'page',
+			'post_status' 	=> 'publish',
+		);
+		$pages = get_posts($args);
+		
+		$page_options = array();
+		foreach ($pages as $page) {
+			$page_options[$page->post_title] = $page->ID;
+		}
+		
+		return $page_options;
+	}
+	
 	public function fields(){
 		$fields   = parent::fields();
 		$fields[] = array(
 			'name' => __('URL'),
-			'desc' => __('Associate this document with a URL.  This will take precedence over any uploaded file, so leave empty if you want to use a file instead.'),
+			'desc' => __('Associate this link with a URL.  This will take precedence over any uploaded file or page choice, so leave empty if you want to use a file or page link instead.'),
 			'id'   => $this->options('name').'_url',
 			'type' => 'text',
 		);
 		$fields[] = array(
+			'name'    => __('Existing Page'),
+			'desc'    => __('Associate this link with an already existing page.  This will take precedence over any uploaded file; leave this field empty if you want to use a file instead.'),
+			'id'      => $this->options('name').'_page',
+			'type' => 'select',
+			'options' =>  $this->get_page_dropdown(),
+		);
+		$fields[] = array(
 			'name'    => __('File'),
-			'desc'    => __('Associate this document with an already existing file.'),
+			'desc'    => __('Associate this link with an already existing file.'),
 			'id'      => $this->options('name').'_file',
 			'type'    => 'file',
 		);
@@ -312,14 +335,20 @@ class ResourceLink extends CustomPostType{
 		
 		$prefix = post_type($form);
 		
-		$x = get_post_meta($form->ID, $prefix.'_url', True);
-		$y = wp_get_attachment_url(get_post_meta($form->ID, $prefix.'_file', True));
+		// URLS take precedence over any other fields.
+		// Pages take precedence over files.
+		$url = get_post_meta($form->ID, $prefix.'_url', True);
+		$file = wp_get_attachment_url(get_post_meta($form->ID, $prefix.'_file', True));
+		$page = get_post_meta($form->ID, $prefix.'_page', True);
 		
-		if (!$x and !$y){
+		if (!$url and !$file and !$page){
 			return '#';
 		}
 		
-		return ($x) ? $x : $y;
+		$val = ($page) ? $page : $file;
+		$val = ($url) ? $url : $val;
+		
+		return $val;
 	}
 	
 	/*
