@@ -235,6 +235,9 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search-term ul li a { font-size: 13px; color: #0086cb; text-decoration: none; }
 .post-type-search-term ul li a:hover { color: #0086cb; text-decoration: underline; }
 
+#sidebar .post-type-search-results .row > div > ul {
+	width: 165px;
+}
 
 
 .box { 
