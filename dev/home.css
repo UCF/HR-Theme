@@ -20,6 +20,10 @@
 	.page-content #leftcol iframe { width: 322px !important; height: 175px !important; }
 }
 
+@media (width: 768px) {
+	.page-content #rightcol { margin-left: 0; }
+}
+
 @media (max-width: 767px) {	
 	.page-content { margin-top: 30px; }
 
