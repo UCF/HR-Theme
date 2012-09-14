@@ -182,6 +182,8 @@ function sc_post_type_search($params=array(), $content='') {
 		'post_type_name'         => 'post',
 		'taxonomy'               => 'category',
 		'taxonomy_term'			 => '',
+		'meta_key'				 => '',
+		'meta_value'			 => '',
 		'show_empty_sections'    => false,
 		'non_alpha_section_name' => 'Other',
 		'column_width'           => 'span4',
@@ -228,7 +230,7 @@ function sc_post_type_search($params=array(), $content='') {
 	</script>
 	<?
 
-	// Split up this post type's posts by term
+	// Set up a post query
 	$by_term = array();
 	
 	$args = array(
@@ -242,9 +244,19 @@ function sc_post_type_search($params=array(), $content='') {
 			)
 		),
 		'orderby'     => $params['order_by'],
-		'order'       => $params['order']
+		'order'       => $params['order'],
 	);
 	
+	if ($params['meta_key'] && $params['meta_value']) {
+		$args['meta_query'] = array(
+			array(
+				'key'	=> $params['meta_key'],
+				'value'	=> $params['meta_value'],
+			),
+		);
+	}
+	
+	// Split up this post type's posts by term
 	if ($params['taxonomy_term'] !== '') {
 		// if a specific taxonomy term is specified, get just its children
 		$termchildren = get_term_children(get_term_by('slug', $params['taxonomy_term'], $params['taxonomy'])->term_id, $params['taxonomy']);
