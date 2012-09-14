@@ -185,6 +185,8 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .table th, .table td { border-top: 1px solid #a8bfd3; }
 
 
+#forms-documents .post-type-search-sorting { display: table !important; }
+
 
 /* Shortcodes, various re-usable things with custom styles */
 .post-search-header { font-size: 11px !important; text-transform: uppercase; font-weight: bold; margin-left: 10px; margin-bottom: 5px; }
@@ -238,6 +240,8 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 	box-shadow: 0 0 4px rgba(0, 0, 0, .1); 
 }
 .post-type-search-term>div { margin-bottom: 10px; }
+.post-type-search-term>div>.row>div { margin-left: 5px; }
+.post-type-search-term>div>.row>div:first-child { margin-left: 20px; }
 .post-type-search-term h3 { font-size: 11px !important; color: #999; text-transform: uppercase; line-height: 15px !important; margin-bottom: 5px; }
 .post-type-search-term ul { list-style-type: none; margin-left: 0; margin-bottom: 0; padding-right: 22px; }
 .page-content .post-type-search-term ul li { line-height: 15px !important; margin-bottom: 9px; }

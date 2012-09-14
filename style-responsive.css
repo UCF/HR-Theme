@@ -5,6 +5,7 @@
 	
 	#header-menu li#menu-item-76 { margin-left: 297px; }
 	
+	.post-type-search-term>div>.row>div:first-child { margin-left: 30px; }
 	.post-type-search-form input { width: 235px; }
 }
 
@@ -47,6 +48,7 @@
 
 @media (max-width: 768px) {	
 	#sidebar .post-type-search-results ul li a { width: 84% !important; }
+	.post-type-search-term>div>.row>div:first-child { margin-left: 0; }
 	
 	.box { height: auto !important; margin-bottom: 20px; }
 	
