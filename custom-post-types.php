@@ -295,6 +295,12 @@ class ResourceLink extends CustomPostType{
 			'id'      => $this->options('name').'_file',
 			'type'    => 'file',
 		);
+		$fields[] = array(
+			'name'    => __('Is a Document'),
+			'desc'    => __('Specifies whether the Resource Link is a downloadable document (and appears on the Documents and Forms page.)'),
+			'id'      => $this->options('name').'_is_doc',
+			'type'    => 'checkbox',
+		);
 		return $fields;
 	}
 	
@@ -356,16 +362,17 @@ class ResourceLink extends CustomPostType{
 		}
 	}
 	
-	/*
-	static function is_external($form) {
-		if () {
+	static function get_link_type($form) {		
+		if (get_post_meta($form->ID, 'resourcelink_is_doc', TRUE)) {
+			return 'document';
+		}
+		elseif ( (get_post_meta($form->ID, 'resourcelink_page', TRUE) ) || ( substr(get_post_meta($form->ID, 'resourcelink_url', TRUE), 0, 1) == '#') ) {
 			return 'internal';
 		}
 		else {
 			return 'external';
 		}
 	}
-	*/
 	
 	
 	/**
@@ -384,7 +391,7 @@ class ResourceLink extends CustomPostType{
 		?>
 		<ul class="nobullet <?php if($css_classes):?><?=$css_classes?><?php else:?><?=$class->options('name')?>-list<?php endif;?>">
 			<?php foreach($objects as $o):?>
-			<li class="resource-link <?=$class_name::get_document_application($o)?> <?=$class_name::is_external($o)?>">
+			<li class="resource-link <?=$class_name::get_document_application($o)?>">
 				<?=$class->toHTML($o)?>
 			</li>
 			<?php endforeach;?>
@@ -399,9 +406,10 @@ class ResourceLink extends CustomPostType{
 	 * Outputs this item in HTML.  Can be overridden for descendants.
 	 **/
 	public function toHTML($object){
-		$title = ResourceLink::get_title($object);
-		$url   = ResourceLink::get_url($object);
-		$html = "<a href='{$url}'>{$title}</a>";
+		$title    = ResourceLink::get_title($object);
+		$url      = ResourceLink::get_url($object);
+		$linktype = ResourceLink::get_link_type($object);
+		$html = "<a class='{$linktype}' href='{$url}'>{$title}</a>";
 		return $html;
 	}
 }
