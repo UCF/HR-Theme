@@ -247,6 +247,7 @@ function sc_post_type_search($params=array(), $content='') {
 		'order'       => $params['order'],
 	);
 	
+	// Handle meta key and value query
 	if ($params['meta_key'] && $params['meta_value']) {
 		$args['meta_query'] = array(
 			array(
