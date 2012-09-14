@@ -204,6 +204,9 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search-form input { margin-bottom: 0; width: 185px; }
 
 .post-type-search-sorting { position: absolute; right: 12px; top: 12px; }
+@media (-webkit-min-device-pixel-ratio: 0) {
+	.post-type-search-sorting { top: 11px; }
+}
 
 .post-type-search-results {
 	position: absolute;

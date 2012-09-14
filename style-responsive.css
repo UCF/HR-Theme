@@ -185,3 +185,6 @@
 	
 	.post-type-search-form input { width: 100%; }
 }
+@media (-webkit-min-device-pixel-ratio: 0) and (max-width: 480px) {
+	.post-type-search-sorting { top: 12px; }
+}
