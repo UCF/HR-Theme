@@ -321,25 +321,19 @@ function sc_post_type_search($params=array(), $content='') {
 	foreach($sections as $id => $section) {
 		?>
 		<div class="<?=$id?>"<? if($id == 'post-type-search-alpha') echo ' style="display:none;"'; ?>>
-			<div class="row">
 			<? foreach($section as $section_title => $section_posts) { ?>
-				<? if(count($section_posts) > 0 || $params['show_empty_sections']) { ?>
-					<? if(count($section_posts) > 0) { ?>
-						<div class="<?=$params['column_width']?>">
-							<h3><?=esc_html($section_title)?></h3>
-							<ul>
-							<? foreach($section_posts as $post) { ?>
-								<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?></li>
-							<? } ?>
-							</ul>
-						</div>
+				<div class="<?=$params['column_width']?>">
+					<h3><?=esc_html($section_title)?></h3>
+					<ul>
+					<? foreach(array_slice($section_posts, $start, $end) as $post) { ?>
+						<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?></li>
 					<? } ?>
-				<? } ?>
+					</ul>
+				</div>
 			<? } ?>
-			</div>
 		</div>
-	<? }
-	?> </div> <?
+	<? } ?>
+	</div> <?
 	return ob_get_clean();
 }
 add_shortcode('post-type-search', 'sc_post_type_search');
