@@ -1,0 +1,5 @@
+.post-type-search-term h3, .post-type-search-alpha h3 { font-size: 16px !important; color: #333 !important; text-transform:none !important; margin-bottom: 8px; }
+.post-type-search-term ul li a, .post-type-search-alpha ul li a { font-size: 14px; text-decoration: underline; color: #333; }
+.post-type-search-term ul li a:hover, .post-type-search-alpha ul li a:hover { color: #ED1C24; }
+
+.post-type-search-results { position: relative; margin-top: auto; margin-left: auto; }
