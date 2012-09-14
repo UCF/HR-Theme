@@ -1,4 +1,4 @@
-<?php disallow_direct_load('single.php');?>
+<?php disallow_direct_load('single-person.php');?>
 <?php get_header(); the_post();?>
 	<div class="page-content person-profile">
 		<div class="row">
