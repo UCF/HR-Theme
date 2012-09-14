@@ -321,34 +321,24 @@ function sc_post_type_search($params=array(), $content='') {
 	foreach($sections as $id => $section) {
 		?>
 		<div class="<?=$id?>"<? if($id == 'post-type-search-alpha') echo ' style="display:none;"'; ?>>
+			<div class="row">
 			<? foreach($section as $section_title => $section_posts) { ?>
 				<? if(count($section_posts) > 0 || $params['show_empty_sections']) { ?>
-					<div>
-						<h3><?=esc_html($section_title)?></h3>
-						<div class="row">
-							<? if(count($section_posts) > 0) { ?>
-								<? $posts_per_column = ceil(count($section_posts) / $params['column_count']); ?>
-								<? foreach(range(0, $params['column_count'] - 1) as $column_index) { ?>
-									<? $start = $column_index * $posts_per_column; ?>
-									<? $end   = $start + $posts_per_column; ?>
-									<? if(count($section_posts) > $start) { ?>
-									<div class="<?=$params['column_width']?>">
-										<ul>
-										<? foreach(array_slice($section_posts, $start, $end) as $post) { ?>
-											<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?></li>
-										<? } ?>
-										</ul>
-									</div>
-									<? } ?>
-								<? } ?>
+					<? if(count($section_posts) > 0) { ?>
+						<div class="<?=$params['column_width']?>">
+							<h3><?=esc_html($section_title)?></h3>
+							<ul>
+							<? foreach($section_posts as $post) { ?>
+								<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?></li>
 							<? } ?>
+							</ul>
 						</div>
-					</div>
+					<? } ?>
 				<? } ?>
 			<? } ?>
+			</div>
 		</div>
-		<?
-	}
+	<? }
 	?> </div> <?
 	return ob_get_clean();
 }
