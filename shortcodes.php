@@ -249,12 +249,8 @@ function sc_post_type_search($params=array(), $content='') {
 	
 	// Handle meta key and value query
 	if ($params['meta_key'] && $params['meta_value']) {
-		$args['meta_query'] = array(
-			array(
-				'key'	=> $params['meta_key'],
-				'value'	=> $params['meta_value'],
-			),
-		);
+		$args['meta_key'] = $params['meta_key'];
+		$args['meta_value'] = $params['meta_value'];
 	}
 	
 	// Split up this post type's posts by term
@@ -336,6 +332,7 @@ function sc_post_type_search($params=array(), $content='') {
 		?>
 		<div class="<?=$id?>"<? if($id == 'post-type-search-alpha') echo ' style="display:none;"'; ?>>
 			<? foreach($section as $section_title => $section_posts) { ?>
+				<? if ($section_posts) { ?>
 				<div class="<?=$params['column_width']?>">
 					<h3><?=esc_html($section_title)?></h3>
 					<ul>
@@ -344,6 +341,7 @@ function sc_post_type_search($params=array(), $content='') {
 					<? } ?>
 					</ul>
 				</div>
+				<? } ?>
 			<? } ?>
 		</div>
 	<? } ?>
