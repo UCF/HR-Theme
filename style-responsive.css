@@ -43,6 +43,8 @@
 }
 
 @media (width: 768px) {
+	article .row { margin-left: 0; }
+	
 	#sidebar .post-type-search-form input { width: 690px; }
 	#sidebar .post-type-search-results { width: 579px; }
 	#sidebar .post-type-search-results .row > div > ul { width: 100% !important; }
@@ -54,6 +56,8 @@
 }
 
 @media (max-width: 768px) {	
+	.box { height: auto !important; margin-bottom: 20px; }
+	
 	#footer { margin-left: 0; }	
 }
 
@@ -131,9 +135,6 @@
 	.table.table-bordered tbody tr td {
 		border-left: 0;
 	}
-
-
-	.box { height: auto !important; margin-bottom: 20px; }
 	
 	.post-type-search-form input { width: 98%; }
 	#sidebar .post-type-search-results .row > div > ul {
