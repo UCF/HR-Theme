@@ -1,35 +1,24 @@
-# Base Wordpress Theme for UCF Marketing
+# UCF Human Resources Theme
 
-Simple theme which includes some of the most common theme elements found in most
-of the wordpress sites we do.  Includes mechanisms to easily add styles and
-scripts through the built-in wordpress functions.
+## Installation
 
-Important files/folders:
+This theme requires the following plugins:
+* Gravity Forms
 
-* functions.php - Includes base code, custom post types, and shortcodes.  This
-should also be where Config::$links, Config::$scripts, Config::$styles, and
-Config::$metas should be defined.  See base theme's functions.php for examples.
-* functions-base.php - Where functions and classes used throughout the theme are
-defined.
-* shortcodes.php - Where wordpress shortcodes can be defined.  See example
-shortcode for more information.
-* custom-post-types.php - Where the abstract custom post type and all its
-descendants live.
-* static - where, aside from style.css in the root, all static content such as
-javascript, images, and css should live.
-
-Since this theme wasn't really built to function like a separate library to use
-in future themes, and more of a starting point for those themes, the best usage
-of this repo might be to add it as a remote to new wordpress projects.  Then
-you can merge from that remote as you wish to keep the current theme up to date.
-
-So when setting up a new project, create an empty repo, setup the remote to this
-repo, and merge it into the new repo creating the base theme.  Then make your
-edits from there.
+Required Installation Settings:
+* Theme Options > Events > Events Max Items:          4
+* Theme Options > Events > Events Calendar URL:       TBD
+* Theme Options > Site > Contact Email:               AskHR@ucf.edu
+* Theme Options > Site > Organization Name:           UCF Human Resources Department
+* Theme Options > Site > Organization Street Address: 3280 Progress Drive
+* Theme Options > Site > Address Line 2:              Suite 100
+* Theme Options > Site > City, State, ZIP:            Orlando, FL 32826
+* Theme Options > Site > Phone #:                     (407) 823-2771
+* Theme Options > Site > Fax #:                       (407) 823-1095
 
 ## Notes
 
-* None
+* Some pages have extensive HTML markup and/or custom stylesheets; these are located in the *dev* directory of this repo
 
 ## Custom Post Types
 
