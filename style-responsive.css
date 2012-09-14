@@ -193,3 +193,7 @@
 	
 	.post-type-search-form input { width: 100%; }
 }
+
+@media (width: 320px) {
+	#sidebar .post-type-search-results .row > div > ul li a { width: 199px; padding-right: 10px; }
+}
