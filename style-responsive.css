@@ -6,9 +6,6 @@
 	#header-menu li#menu-item-76 { margin-left: 297px; }
 	
 	.post-type-search-form input { width: 235px; }
-	#sidebar .post-type-search-results .row > div > ul {
-		width: 205px;
-	}
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -30,13 +27,7 @@
 	#header .search-form #s { width: 54% !important; }
 	
 	.post-type-search-form input { width: 132px; }
-	#sidebar .post-type-search-results .row > div > ul {
-		width: 132px !important;
-	}
-	#sidebar .post-type-search-results .row > div > ul li a {
-		width: 80%;
-		padding: 4px 15px;
-	}
+	#sidebar .post-type-search-results .row > div > ul li a { padding: 4px 15px; }
 	
 	.contact-email { font-size: 18px !important; }
 	.contact-email a { font-size: 22px !important; }
@@ -47,8 +38,7 @@
 	
 	#sidebar .post-type-search-form input { width: 690px; }
 	#sidebar .post-type-search-results { width: 579px; }
-	#sidebar .post-type-search-results .row > div > ul { width: 100% !important; }
-	#sidebar .post-type-search-results .row > div > ul li a { margin-left: 20px; width: 549px; }
+	#sidebar .post-type-search-results ul li a { margin-left: 20px; }
 	#sidebar .post-type-search-term > div > .row > div { margin-left: 20px; }
 	
 	.page-content, #footer-widget-wrap { padding-left: 20px; }
@@ -56,6 +46,8 @@
 }
 
 @media (max-width: 768px) {	
+	#sidebar .post-type-search-results ul li a { width: 84% !important; }
+	
 	.box { height: auto !important; margin-bottom: 20px; }
 	
 	#footer { margin-left: 0; }	
@@ -193,8 +185,4 @@
 	#header .search-form #s { width: 175px !important; padding-left: 2px; }
 	
 	.post-type-search-form input { width: 100%; }
-}
-
-@media (width: 320px) {
-	#sidebar .post-type-search-results .row > div > ul li a { width: 199px; padding-right: 10px; }
 }
