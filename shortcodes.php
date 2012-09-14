@@ -312,9 +312,10 @@ function sc_post_type_search($params=array(), $content='') {
 			</form>
 		</div>
 		<div class="post-type-search-results "></div>
+		<span class="search-toggle-text">Sort By: </span>
 		<div class="btn-group post-type-search-sorting">
-			<button class="btn active"><i class="icon-list-alt"></i></button>
-			<button class="btn"><i class="icon-font"></i></button>
+			<button class="btn active"><i class="icon-list-alt"></i> <span class="search-toggle-text">Category</span></button>
+			<button class="btn"><i class="icon-font"></i> <span class="search-toggle-text">Alphabetical</span></button>
 		</div>
 	<?
 

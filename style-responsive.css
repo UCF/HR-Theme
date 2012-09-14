@@ -45,6 +45,8 @@
 }
 
 @media (max-width: 768px) {	
+	.post-type-search>.search-toggle-text, .post-type-search-sorting>button>.search-toggle-text { display: none; }
+	
 	#sidebar .post-type-search-results ul li a { width: 84% !important; }
 	
 	.box { height: auto !important; margin-bottom: 20px; }
