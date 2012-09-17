@@ -238,6 +238,8 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search-results ul li:hover a {  color: #fff; text-decoration: none; }
 .post-type-search-message { padding-top: 10px; margin-bottom: 0; }
 
+.search-post-pgsection { display: none; }
+
 .post-type-search-term, .post-type-search-alpha { 
 	padding: 10px;
 	border-radius: 5px; 
