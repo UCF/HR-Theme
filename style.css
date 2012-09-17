@@ -213,6 +213,7 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 
 .post-type-search-results {
 	position: absolute;
+	z-index: 2;
 	background: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
