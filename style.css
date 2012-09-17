@@ -189,8 +189,8 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 
 
 /* Shortcodes, various re-usable things with custom styles */
-.post-search-header { font-size: 11px !important; text-transform: uppercase; font-weight: bold; margin-left: 10px; margin-bottom: 5px; }
-.post-type-search { position: relative; margin-top: 0; }
+.post-search-header-text { font-size: 11px !important; text-transform: uppercase; font-weight: bold; margin-left: 10px; margin-bottom: 5px; }
+.post-type-search { position: relative; margin-top: 0; z-index: 1;}
 .post-type-search-sorting { display: none; }
 
 .post-type-search>.search-toggle-text { position: absolute; top: 15px; right: 235px; }
@@ -207,7 +207,7 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search-form label { display: none; }
 .post-type-search-form input { margin-bottom: 0; width: 185px; }
 
-.post-type-search-sorting { position: absolute; right: 12px; top: 12px; }
+.post-type-search-sorting { position: absolute; right: 12px; top: 12px; z-index: 999; }
 @media (-webkit-min-device-pixel-ratio: 0) {
 	.post-type-search-sorting { top: 11px; }
 }
