@@ -26,6 +26,8 @@
 .post-type-search-results ul li a { color: #344d7d; text-decoration: underline; font-size: 22px !important; font-weight: 200; letter-spacing: 0.6px; float: left; width: 80%; }
 .post-type-search-results ul li a:hover { color: #344d7d; text-decoration: underline; }
 
+.post-type-search .search-toggle-text { display: none; }
+
 
 .post-type-search-term h3, .post-type-search-alpha h3 { font-size: 16px !important; color: #333 !important; text-transform:none !important; margin-bottom: 8px; }
 .post-type-search-term ul li a, .post-type-search-alpha ul li a { font-size: 14px; text-decoration: underline; color: #333; }
