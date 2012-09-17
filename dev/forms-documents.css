@@ -17,7 +17,7 @@
 	box-shadow: 0 0 0 0;
 	 
 }
-.post-type-search-results .search-post-pgsection { display: block; float: left; clear: both; padding: 0 15px; font-size: 10px; color: #969693; text-transform: uppercase; letter-spacing: 1.5px; }
+.post-type-search-results .search-post-pgsection { display: block; float: left; clear: both; padding: 0 15px; font-size: 10px; color: #969693; text-transform: uppercase; letter-spacing: 1.5px; width: 80%; }
 .post-type-search-results #post-search-results-label { display: block !important; padding-left:35px; padding-top: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #4a7eab; }
 .post-type-search-results ul {
 	padding: 10px 20px;
@@ -25,7 +25,7 @@
 .post-type-search-results ul li { margin-bottom: 15px; overflow: hidden; }
 .post-type-search-results ul li:hover { background: #e9f0f6; }
 .post-type-search-results ul li:hover a { color: #344d7d !important; text-decoration: underline; }
-.post-type-search-results ul li a { color: #344d7d; text-decoration: underline; font-size: 22px !important; font-weight: 200; letter-spacing: 0.6px; float: left; }
+.post-type-search-results ul li a { color: #344d7d; text-decoration: underline; font-size: 22px !important; font-weight: 200; letter-spacing: 0.6px; float: left; width: 80%; }
 .post-type-search-results ul li a:hover { color: #344d7d; text-decoration: underline; }
 
 
