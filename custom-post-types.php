@@ -278,20 +278,20 @@ class ResourceLink extends CustomPostType{
 		$fields   = parent::fields();
 		$fields[] = array(
 			'name' => __('URL'),
-			'desc' => __('Associate this link with a URL.  This will take precedence over any uploaded file or page choice, so leave empty if you want to use a file or page link instead.'),
+			'desc' => __('Associate this link with a URL.  This will take precedence over any uploaded file or page choice.  If the URL begins with a hash tag # (designating an inner-page anchor), an Existing Page should also be specified.'),
 			'id'   => $this->options('name').'_url',
 			'type' => 'text',
 		);
 		$fields[] = array(
 			'name'    => __('Existing Page'),
-			'desc'    => __('Associate this link with an already existing page.  This will take precedence over any uploaded file; leave this field empty if you want to use a file instead.'),
+			'desc'    => __('Associate this link with an already existing page.  An inner-page link can be specified by choosing a page below and typing an anchor link in the URL field (i.e. #some-section)'),
 			'id'      => $this->options('name').'_page',
 			'type' => 'select',
 			'options' =>  $this->get_page_dropdown(),
 		);
 		$fields[] = array(
 			'name'    => __('File'),
-			'desc'    => __('Associate this link with an already existing file.'),
+			'desc'    => __('Associate this link with an already existing file.  Make sure URL and Existing Page are left blank if you want to use a file.'),
 			'id'      => $this->options('name').'_file',
 			'type'    => 'file',
 		);
@@ -352,7 +352,12 @@ class ResourceLink extends CustomPostType{
 		}
 		
 		if ($url) {
-			return $url;
+			if ($url[0] == '#' && $page) {
+				return get_permalink($page).$url;
+			}
+			else {
+				return $url;
+			}
 		}
 		elseif ($page) {
 			return get_permalink($page);
