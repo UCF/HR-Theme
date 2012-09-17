@@ -340,7 +340,7 @@ function sc_post_type_search($params=array(), $content='') {
 					<h3><?=esc_html($section_title)?></h3>
 					<ul>
 					<? foreach(array_slice($section_posts, $start, $end) as $post) { ?>
-						<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
+						<li data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="'.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
 					<? } ?>
 					</ul>
 				</div>

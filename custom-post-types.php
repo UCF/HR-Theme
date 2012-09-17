@@ -318,9 +318,20 @@ class ResourceLink extends CustomPostType{
 		$prefix   = post_type($form);
 		$document = get_post(get_post_meta($form->ID, $prefix.'_file', True));
 		
-		$is_url = get_post_meta($form->ID, $prefix.'_url', True);
+		$url = get_post_meta($form->ID, $prefix.'_url', True);
+		$page = get_post_meta($form->ID, $prefix.'_page', True);
 		
-		return ($is_url) ? "text/html" : $document->post_mime_type;
+		if ($url) {
+			$link_type = (substr($url, 0, 1) == '#' && $page) ? 'page' : 'text/html';
+		}
+		elseif ($page) {
+			$link_type = 'page';
+		}
+		elseif ($document) {
+			$link_type = $document->post_mime_type;
+		}
+		
+		return $link_type;
 	}
 	
 	
@@ -352,7 +363,7 @@ class ResourceLink extends CustomPostType{
 		}
 		
 		if ($url) {
-			if ($url[0] == '#' && $page) {
+			if (substr($url, 0, 1) == '#' && $page) {
 				return get_permalink($page).$url;
 			}
 			else {
@@ -366,7 +377,7 @@ class ResourceLink extends CustomPostType{
 			return $file;
 		}
 	}
-	
+	/*
 	static function get_link_type($form) {		
 		if (get_post_meta($form->ID, 'resourcelink_is_doc', TRUE)) {
 			return 'document';
@@ -378,7 +389,7 @@ class ResourceLink extends CustomPostType{
 			return 'external';
 		}
 	}
-	
+	*/
 	
 	/**
 	 * Handles output for a list of objects, can be overridden for descendants.
@@ -413,8 +424,8 @@ class ResourceLink extends CustomPostType{
 	public function toHTML($object){
 		$title    = ResourceLink::get_title($object);
 		$url      = ResourceLink::get_url($object);
-		$linktype = ResourceLink::get_link_type($object);
-		$html = "<a class='{$linktype}' href='{$url}'>{$title}</a>";
+		$linktype = ResourceLink::get_document_application($object);
+		$html = "<a href='{$url}'>{$title}</a>";
 		return $html;
 	}
 }

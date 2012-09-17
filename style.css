@@ -265,6 +265,18 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search-term ul li a, .post-type-search-alpha ul li a { font-size: 13px; color: #0086cb; text-decoration: none; }
 .post-type-search-term ul li a:hover, .post-type-search-alpha ul li a:hover { color: #0086cb; text-decoration: underline; }
 
+.post-type-search ul li.document, .post-type-search ul li.pdf, .post-type-search ul li.zip, .post-type-search ul li.word, .post-type-search ul li.excel, .post-type-search ul li.powerpoint {
+	margin-left: 25px;
+}
+.post-type-search ul li.document { list-style-image: url('static/img/documents-doc.png'); }
+.post-type-search ul li.pdf { list-style-image: url('static/img/documents-pdf.png'); }
+.post-type-search ul li.zip { list-style-image: url('static/img/documents-zip.png'); }
+.post-type-search ul li.word { list-style-image: url('static/img/documents-word.png'); }
+.post-type-search ul li.excel { list-style-image: url('static/img/documents-excel.png'); }
+.post-type-search ul li.powerpoint { list-style-image: url('static/img/documents-ppt.png'); }
+#sidebar .post-type-search ul li.document, #sidebar .post-type-search ul li.pdf, #sidebar .post-type-search ul li.zip, #sidebar .post-type-search ul li.word, #sidebar .post-type-search ul li.excel, #sidebar .post-type-search ul li.powerpoint {
+	list-style-image: none;
+}
 
 
 .box { 
