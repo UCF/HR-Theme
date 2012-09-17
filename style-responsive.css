@@ -174,6 +174,7 @@
 	#header { margin-top: 20px; }
 	#header h1 a { font-size: 32px; }
 	
+	#header-menu li#menu-item-76 { line-height: 13px; margin-bottom: 0; }
 	#header-menu li#menu-item-76 a, #header-menu li.last a {
 		text-transform: none; font-size: 13px;
 	}
