@@ -185,16 +185,15 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .table th, .table td { border-top: 1px solid #a8bfd3; }
 
 
-#forms-documents .post-type-search-sorting { display: table !important; }
-
-
 /* Shortcodes, various re-usable things with custom styles */
 .post-search-header-text { font-size: 11px !important; text-transform: uppercase; font-weight: bold; margin-left: 10px; margin-bottom: 5px; }
-.post-type-search { position: relative; margin-top: 0; z-index: 1;}
+.post-type-search { position: relative; margin-top: 0; z-index: 1; }
 .post-type-search-sorting { display: none; }
 
-.post-type-search>.search-toggle-text { position: absolute; top: 15px; right: 235px; }
+.post-type-search>.search-toggle-text { position: absolute; top: 15px; right: 235px; z-index: 2 }
 #sidebar .post-type-search .search-toggle-text { display: none; }
+
+.post-type-search-header { position: relative; z-index: 1; }
 
 .post-type-search-form { 
 	padding: 10px; 
@@ -207,7 +206,7 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search-form label { display: none; }
 .post-type-search-form input { margin-bottom: 0; width: 185px; }
 
-.post-type-search-sorting { position: absolute; right: 12px; top: 12px; z-index: 999; }
+.post-type-search-sorting { position: absolute; right: 12px; top: 12px; z-index: 2; }
 @media (-webkit-min-device-pixel-ratio: 0) {
 	.post-type-search-sorting { top: 11px; }
 }

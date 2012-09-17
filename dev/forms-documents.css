@@ -3,6 +3,8 @@
 	.post-type-search-form label { display: none !important; }
 }
 
+.post-type-search-sorting, .post-type-search-sorting .btn { display: block !important; }
+
 .post-type-search-results { 
 	position: relative; 
 	margin-top: auto; 
