@@ -283,12 +283,10 @@ function sc_post_type_search($params=array(), $content='') {
 
 	// Split up this post type's posts by the first alpha character
 	$by_alpha = array();
-	$by_alpha_posts = get_posts(array(
-		'numberposts' => -1,
-		'post_type'   => $params['post_type_name'],
-		'orderby'     => 'post_title',
-		'order'       => 'alpha'
-	));
+	$args['orderby'] = 'post_title';
+	$args['order'] = 'alpha';
+	$args['tax_query'] = '';
+	$by_alpha_posts = get_posts($args);
 	foreach($by_alpha_posts as $post) {
 		if(preg_match('/([a-zA-Z])/', $post->post_title, $matches) == 1) {
 			$by_alpha[strtoupper($matches[1])][] = $post;
@@ -337,7 +335,7 @@ function sc_post_type_search($params=array(), $content='') {
 					<h3><?=esc_html($section_title)?></h3>
 					<ul>
 					<? foreach(array_slice($section_posts, $start, $end) as $post) { ?>
-						<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?></li>
+						<li data-post-id="<?=$post->ID?>"><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
 					<? } ?>
 					</ul>
 				</div>
