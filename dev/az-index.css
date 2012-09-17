@@ -1,0 +1,54 @@
+.post-type-search-form label { display: inline !important; margin: 0 10px; font-weight: bold; font-size: 14px; color: #4a7eab; vertical-align: middle; }
+@media (max-width: 768px) {	
+	.post-type-search-form label { display: none !important; }
+}
+
+.post-type-search-results { 
+	position: relative; 
+	margin-top: auto; 
+	margin-left: 0; 
+	width: 100%;
+	background: #e9f0f6;
+	border: 1px solid #bbd0e2;
+	-moz-box-shadow: 0 0 0 0;
+	-webkit-box-shadow: 0 0 0 0;
+	box-shadow: 0 0 0 0;
+	 
+}
+.post-type-search-results .search-post-pgsection { display: block; float: left; clear: both; padding: 0 15px; font-size: 10px; color: #969693; text-transform: uppercase; letter-spacing: 1.5px; width: 80%; }
+.post-type-search-results #post-search-results-label { display: block !important; padding-left:35px; padding-top: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #4a7eab; }
+.post-type-search-results ul {
+	padding: 10px 20px;
+}
+.post-type-search-results ul li { margin-bottom: 15px; overflow: hidden; }
+.post-type-search-results ul li:hover { background: #e9f0f6; }
+.post-type-search-results ul li:hover a { color: #344d7d !important; text-decoration: underline; }
+.post-type-search-results ul li a { color: #344d7d; text-decoration: underline; font-size: 22px !important; font-weight: 200; letter-spacing: 0.6px; float: left; width: 80%; }
+.post-type-search-results ul li a:hover { color: #344d7d; text-decoration: underline; }
+
+
+.post-type-search-term h3, .post-type-search-alpha h3 { font-size: 16px !important; color: #333 !important; text-transform:none !important; margin-bottom: 8px; }
+.post-type-search-term ul li a, .post-type-search-alpha ul li a { font-size: 14px; text-decoration: underline; color: #333; }
+.post-type-search-term ul li a:hover, .post-type-search-alpha ul li a:hover { color: #ED1C24; }
+
+.post-type-search-term, .post-type-search-alpha { 
+	-moz-box-shadow: 0 0 0 0;
+	-webkit-box-shadow: 0 0 0 0;
+	box-shadow: 0 0 0 0; 
+	border: 0;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 0;
+	margin-left: -20px;
+	margin-top: 40px;
+}
+.post-type-search-term>div, .post-type-search-alpha>div {
+	margin-right: 0;
+	margin-left: 20px;
+}
+@media (min-width: 1200px) {
+	.post-type-search-term, .post-type-search-alpha { margin-left: -30px; }
+	.post-type-search-term>div, .post-type-search-alpha>div {
+		margin-left: 30px;
+	}
+}
