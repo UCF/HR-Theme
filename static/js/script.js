@@ -308,6 +308,13 @@ mapWidgetResizing = function($) {
 	}
 }
 
+azIndexShow = function($) {
+	if ($('#a-to-z-index').length > 0) {
+		$('.post-type-search-term').hide();
+		$('.post-type-search-alpha').show();
+	}
+}
+
 if (typeof jQuery != 'undefined'){
 	jQuery(document).ready(function($) {
 		Webcom.slideshow($);
@@ -324,5 +331,6 @@ if (typeof jQuery != 'undefined'){
 		Generic.PostTypeSearch($);
 		
 		mapWidgetResizing($);
+		azIndexShow($);
 	});
 }else{console.log('jQuery dependancy failed to load');}
