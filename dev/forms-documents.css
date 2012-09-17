@@ -1,3 +1,8 @@
+.post-type-search-form label { display: inline !important; margin: 0 10px; font-weight: bold; font-size: 14px; color: #4a7eab; vertical-align: middle; }
+@media (max-width: 768px) {	
+	.post-type-search-form label { display: none !important; }
+}
+
 .post-type-search-results { 
 	position: relative; 
 	margin-top: auto; 
