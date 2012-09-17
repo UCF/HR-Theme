@@ -262,7 +262,7 @@ Generic.PostTypeSearch = function($) {
 							}
 
 							// Setup results HTML
-							results.append($('<div class="row"></div>'));
+							results.append($('<div class="row"><div class="span12" id="post-search-results-label">Search Results</div></div>'));
 							$.each(columns, function(column_index, column_elements) {
 								var column_wrap = $('<div class="' + column_width + '"><ul></ul></div>'),
 									column_list = column_wrap.find('ul');
