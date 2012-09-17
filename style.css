@@ -276,6 +276,7 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search ul li.powerpoint { list-style-image: url('static/img/documents-ppt.png'); }
 #sidebar .post-type-search ul li.document, #sidebar .post-type-search ul li.pdf, #sidebar .post-type-search ul li.zip, #sidebar .post-type-search ul li.word, #sidebar .post-type-search ul li.excel, #sidebar .post-type-search ul li.powerpoint {
 	list-style-image: none;
+	margin-left: 0;
 }
 
 
