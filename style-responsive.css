@@ -133,6 +133,8 @@
 	#sidebar .post-type-search-results .row > div > ul {
 		width: 100%;
 	}
+	.post-type-search-term>div ul li { padding-right: 20px; }
+	#sidebar .post-type-search-term>div ul li { padding-right: 0; }
 }
 
 @media (max-width: 480px) {

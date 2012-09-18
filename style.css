@@ -261,7 +261,13 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 	margin-bottom: 5px;
 }
 .post-type-search-alpha h3 { font-size: 18px !important; }
-.post-type-search-term ul, .post-type-search-alpha ul { list-style-type: none; margin-left: 0; margin-bottom: 20px; padding-right: 22px; }
+.post-type-search-term ul, .post-type-search-alpha ul { list-style-type: none; margin-left: 0; margin-bottom: 20px; }
+#sidebar .post-type-search-term h3, 
+#sidebar .post-type-search-alpha h3,
+#sidebar .post-type-search-term ul, 
+#sidebar .post-type-search-alpha ul { 
+	padding-right: 22px; 
+}
 .post-type-search-term ul li, .post-type-search-alpha ul li { line-height: 15px !important; margin-bottom: 9px; }
 .post-type-search-term ul li a, .post-type-search-alpha ul li a { font-size: 13px; color: #0086cb; text-decoration: none; }
 .post-type-search-term ul li a:hover, .post-type-search-alpha ul li a:hover { color: #0086cb; text-decoration: underline; }
