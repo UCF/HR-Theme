@@ -898,6 +898,7 @@ function mimetype_to_application($mimetype){
 			$type = 'word';
 			break;
 		case 'application/msexcel':
+		case 'application/vnd.ms-excel':
 		case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
 			$type = 'excel';
 			break;
