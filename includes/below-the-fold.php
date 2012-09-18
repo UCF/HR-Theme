@@ -11,7 +11,7 @@
 					$posts = get_posts($args);
 					foreach ($posts as $post) {
 						print '<h3><a href="'.get_permalink($post->ID).'">'.$post->post_title.'</a></h3>';
-						print '<p>'.$post->post_content.'</p>';
+						print truncatehtml($post->post_content, 250);
 					}
 				?>
 			<?php endif;?>
