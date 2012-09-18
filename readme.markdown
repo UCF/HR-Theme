@@ -3,7 +3,7 @@
 ## Installation
 
 This theme requires the following plugins:
-* Gravity Forms
+* (none)
 
 Required Installation Settings:
 * Theme Options > Events > Events Max Items:          4
