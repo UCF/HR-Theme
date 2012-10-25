@@ -753,4 +753,20 @@ class Post extends CustomPostType {
 		);
 	}
 }
+
+
+class ContentBlock extends CustomPostType {
+	public
+		$name           = 'contentblock',
+		$plural_name    = 'Content Blocks',
+		$singular_name  = 'Content Block',
+		$add_new_item   = 'Add New Content Block',
+		$edit_item      = 'Edit Content Block',
+		$new_item       = 'New Content Block',
+		$public         = True,
+		$use_editor     = True,
+		$use_thumbnails = False,
+		$use_order      = True,
+		$use_title      = True;
+}
 ?>

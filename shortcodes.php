@@ -172,6 +172,23 @@ add_shortcode('site-contact-email', 'sc_contact_email');
 
 
 /**
+ * Output a Content Block by its post title.
+ **/
+function sc_content_block($atts) {
+	$post_name = $atts['name'] ? $atts['name'] : '';
+	if ($post_name !== '') {
+		$post = get_page_by_title($post_name, 'OBJECT', 'contentblock');
+	}
+	ob_start();
+	
+	print apply_filters('the_content', $post->post_content);
+	
+	return ob_get_clean(); 
+}
+add_shortcode('content-block', 'sc_content_block');
+
+
+/**
  * Post search
  *
  * @return string
