@@ -8,6 +8,7 @@
 		
 		<div class="sections">
 			<ul>
+				<li class="section"><a href="#bootstrap">Bootstrap</a></li>
 				<li class="section"><a href="#posts">Posts</a></li>
 				<li class="section"><a href="#pages">Pages</a></li>
 				<li class="section"><a href="#page_sections">Page Sections</a></li>
@@ -17,6 +18,13 @@
 		</div>
 		<div class="fields">
 			<ul>
+			
+			
+				<li class="section" id="bootstrap">
+					<h3>Bootstrap</h3>
+					<p>This site is designed using the Twitter Bootstrap CSS framework.  You can use classes set by Bootstrap to add special styling to some elements.</p>
+					<p>For more information on Bootstrap, visit the <a target="_blank" href="http://twitter.github.com/bootstrap/">Bootstrap documentation</a>.  Note that this links to the most recent version of Bootstrap, which may not be the same as the version running on this site.  Some styles and components in the documentation may look different or not work at all.</p>
+				</li>
 				
 				<li class="section" id="posts">
 					<h3>Posts</h3>
