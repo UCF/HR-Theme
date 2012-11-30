@@ -261,6 +261,14 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 	margin-bottom: 5px;
 }
 .post-type-search-alpha h3 { font-size: 18px !important; }
+.page-content .post-type-search-alpha h3 {
+	font-size: 35px !important;
+	line-height: 40px !important;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 6px;
+	font-weight: 200;
+}
 .post-type-search-term ul, .post-type-search-alpha ul { list-style-type: none; margin-left: 0; margin-bottom: 20px; }
 #sidebar .post-type-search-term h3, 
 #sidebar .post-type-search-alpha h3,
