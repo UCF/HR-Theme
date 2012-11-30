@@ -315,6 +315,10 @@ azIndexShow = function($) {
 	}
 }
 
+headerNavStyles = function($) {
+	$('#header-menu .last').prev().addClass('nexttolast');
+}
+
 if (typeof jQuery != 'undefined'){
 	jQuery(document).ready(function($) {
 		Webcom.slideshow($);
@@ -332,5 +336,6 @@ if (typeof jQuery != 'undefined'){
 		
 		mapWidgetResizing($);
 		azIndexShow($);
+		headerNavStyles($);
 	});
 }else{console.log('jQuery dependancy failed to load');}

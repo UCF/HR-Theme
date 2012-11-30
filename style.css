@@ -86,14 +86,12 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .menu.horizontal li:after { content: ""; }
 .menu a { font-weight: 400; color: #333; }
 
-/* Note - these styles are specific to menu item IDs; if a link is moved
-	or added on the menu, these IDs may need to be updated */
-#header-menu li#menu-item-76 { margin-left: 67px; }
-#header-menu li#menu-item-76:after { content: "|"; }
-#header-menu li#menu-item-76 a, #header-menu li.last a { 
+#header-menu li.nexttolast { margin-left: 67px; }
+#header-menu li.nexttolast:after { content: "|"; }
+#header-menu li.nexttolast a, #header-menu li.last a { 
 	font-size: 11px; text-transform: uppercase; font-weight: bold;
 }
-#header-menu li#menu-item-76 a:hover, #header-menu li.last a:hover {
+#header-menu li.nexttolast a:hover, #header-menu li.last a:hover {
 	color: #ED1C24;
 }
 
