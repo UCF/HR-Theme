@@ -46,11 +46,16 @@
 }
 .post-type-search-term>div, .post-type-search-alpha>div {
 	margin-right: 0;
-	margin-left: 20px;
+	/*margin-left: 20px;*/
 }
 @media (min-width: 1200px) {
 	.post-type-search-term, .post-type-search-alpha { margin-left: -30px; }
-	.post-type-search-term>div, .post-type-search-alpha>div {
+	/*.post-type-search-term>div, .post-type-search-alpha>div {
 		margin-left: 30px;
+	}*/
+}
+@media (max-width: 767px) {
+	.post-type-search-term, .post-type-search-alpha {
+		margin-left: 0;
 	}
 }
