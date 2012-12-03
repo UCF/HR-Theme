@@ -267,6 +267,8 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 	margin-bottom: 6px;
 	font-weight: 200;
 }
+#sidebar .post-type-search .post-type-search-term > .row > div,
+#sidebar .post-type-search .post-type-search-alpha > .row > div { margin-left: 0; }
 .post-type-search-term ul, .post-type-search-alpha ul { list-style-type: none; margin-left: 0; margin-bottom: 20px; }
 #sidebar .post-type-search-term h3, 
 #sidebar .post-type-search-alpha h3,
