@@ -305,8 +305,8 @@ function sc_post_type_search($params=array(), $content='') {
 
 	// Split up this post type's posts by the first alpha character
 	$by_alpha = array();
-	$args['orderby'] = 'post_title';
-	$args['order'] = 'alpha';
+	$args['orderby'] = 'title';
+	$args['order'] = 'ASC';
 	$args['tax_query'] = '';
 	$by_alpha_posts = get_posts($args);
 	foreach($by_alpha_posts as $post) {
