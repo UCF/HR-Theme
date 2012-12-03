@@ -351,18 +351,25 @@ function sc_post_type_search($params=array(), $content='') {
 	foreach($sections as $id => $section) {
 		?>
 		<div class="<?=$id?>"<? if($id == 'post-type-search-alpha') echo ' style="display:none;"'; ?>>
+			<div class="row">
+			<? $count = 0; ?>
 			<? foreach($section as $section_title => $section_posts) { ?>
 				<? if ($section_posts) { ?>
-				<div class="<?=$params['column_width']?>">
-					<h3><?=esc_html($section_title)?></h3>
-					<ul>
-					<? foreach(array_slice($section_posts, $start, $end) as $post) { ?>
-						<li data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="'.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
-					<? } ?>
-					</ul>
-				</div>
-				<? } ?>
-			<? } ?>
+					<? 	if ($count % $params['column_count'] == 0 && $count !== 0) {
+						print '</div><div class="row">';
+					} ?>
+					<div class="<?=$params['column_width']?>">
+						<h3><?=esc_html($section_title)?></h3>
+						<ul>
+						<? foreach(array_slice($section_posts, $start, $end) as $post) { ?>
+							<li data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="'.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
+						<? } ?>
+						</ul>
+					</div>
+				<? $count++; 
+				} // endif ?>
+			<? } // endforeach ?>
+			</div>
 		</div>
 	<? } ?>
 	</div> <?
