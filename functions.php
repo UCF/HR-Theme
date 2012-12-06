@@ -28,9 +28,9 @@ function get_breadcrumbs($post_id) {
 	$output .= '<li><a href="'.get_site_url().'">Home</a> <span class="divider">/</span></li>';
 	if ($ancestors) {
 		// Ancestor IDs return from being the most direct parent first,
-		// to the most distant last.  rsort returns the IDs in the order
+		// to the most distant last.  krsort returns the IDs in the order
 		// we need:
-		rsort($ancestors);
+		krsort($ancestors);
 		foreach ($ancestors as $id) {
 			$output .= '<li><a href="'.get_permalink($id).'">'.get_the_title($id).'</a> <span class="divider">/</span></li>';
 		}
