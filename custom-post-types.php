@@ -362,6 +362,8 @@ class ResourceLink extends CustomPostType{
 			return '#';
 		}
 		
+		// Basic page links and page anchors should use the URL
+		// that they are linking to and not the resourcelink permalink
 		if ($url) {
 			if (substr($url, 0, 1) == '#' && $page) {
 				return get_permalink($page).$url;
@@ -373,23 +375,12 @@ class ResourceLink extends CustomPostType{
 		elseif ($page) {
 			return get_permalink($page);
 		}
+		// We want documents to use resourcelink permalinks;
+		// i.e. http://hr.ucf.edu/resourcelinks/my-document/
 		else {
-			return $file;
+			return get_permalink($form->ID);
 		}
 	}
-	/*
-	static function get_link_type($form) {		
-		if (get_post_meta($form->ID, 'resourcelink_is_doc', TRUE)) {
-			return 'document';
-		}
-		elseif ( (get_post_meta($form->ID, 'resourcelink_page', TRUE) ) || ( substr(get_post_meta($form->ID, 'resourcelink_url', TRUE), 0, 1) == '#') ) {
-			return 'internal';
-		}
-		else {
-			return 'external';
-		}
-	}
-	*/
 	
 	/**
 	 * Handles output for a list of objects, can be overridden for descendants.
