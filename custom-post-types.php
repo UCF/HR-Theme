@@ -291,7 +291,7 @@ class ResourceLink extends CustomPostType{
 		);
 		$fields[] = array(
 			'name'    => __('File'),
-			'desc'    => __('Associate this link with an already existing file.  Make sure URL and Existing Page are left blank if you want to use a file.'),
+			'desc'    => __('Associate this link with a file.  Make sure URL and Existing Page are left blank if you want to use a file.'),
 			'id'      => $this->options('name').'_file',
 			'type'    => 'file',
 		);

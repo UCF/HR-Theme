@@ -1655,7 +1655,8 @@ function _show_meta_boxes($post, $meta_box){
 					}
 				?>
 				<?php if($document):?>
-				<a href="<?=$url?>"><?=$document->post_title?></a><br /><br />
+				<div class="description"><strong>NOTE:</strong> to replace the current file while maintaining the existing URL, click "Edit/Update File".  To use a new file with a new URL, use the file uploader below.</div><br />
+				<a href="<?=$url?>"><?=$document->post_title?></a> &nbsp; <a class="button-secondary" href="<?=admin_url()?>media.php?attachment_id=<?=$document->ID?>&action=edit">Edit / Update File</a><br /><br />
 				<?php endif;?>
 				<input type="file" id="file_<?=$post->ID?>" name="<?=$field['id']?>"><br />
 			
