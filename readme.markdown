@@ -15,6 +15,7 @@ Required Installation Settings:
 * Theme Options > Site > City, State, ZIP:            Orlando, FL 32826
 * Theme Options > Site > Phone #:                     (407) 823-2771
 * Theme Options > Site > Fax #:                       (407) 823-1095
+* (From Network Admin) All Sites > /hr/ > Edit > Settings > Uploads Use Yearmonth Folders: 0 (removes month/year permalink structure for media library uploads)
 
 ## Custom Post Types
 
