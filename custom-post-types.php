@@ -358,12 +358,9 @@ class ResourceLink extends CustomPostType{
 		$file = wp_get_attachment_url(get_post_meta($form->ID, $prefix.'_file', True));
 		$page = get_post_meta($form->ID, $prefix.'_page', True);
 		
-		if (!$url and !$file and !$page){
+		if (!$url && !$file && !$page){
 			return '#';
 		}
-		
-		// Basic page links and page anchors should use the URL
-		// that they are linking to and not the resourcelink permalink
 		if ($url) {
 			if (substr($url, 0, 1) == '#' && $page) {
 				return get_permalink($page).$url;
@@ -375,10 +372,8 @@ class ResourceLink extends CustomPostType{
 		elseif ($page) {
 			return get_permalink($page);
 		}
-		// We want documents to use resourcelink permalinks;
-		// i.e. http://hr.ucf.edu/resourcelinks/my-document/
 		else {
-			return get_permalink($form->ID);
+			return $file;
 		}
 	}
 	
