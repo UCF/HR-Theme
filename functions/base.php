@@ -1673,7 +1673,7 @@ function _show_meta_boxes($post, $meta_box){
 						$nonce_edit_url = str_replace("http:", "https:", $nonce_edit_url);
 					}
 				?>
-				<div class="description"><strong>NOTE:</strong> to replace the current file while maintaining the existing URL, click "Edit/Update File" and select "Just replace the file."  To use a new file with a new URL, use the file uploader below.</div><br />
+				<div class="description"><strong>NOTE:</strong> to replace the current file while maintaining the existing URL, click "Edit/Update File" (opens in a new window.)  To use a new file with a new URL, use the file uploader below.</div><br />
 				<a href="<?=$url?>"><?=$document->post_title?></a> &nbsp; <a target="_blank" class="button-secondary" href="<?=$nonce_edit_url?>">Edit / Update File</a>
 				<br /><br />
 				<?php endif;?>
