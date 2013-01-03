@@ -25,7 +25,6 @@ Developed for .SE (Stiftelsen för Internetinfrastruktur) - http://www.iis.se
  *
  */
 
-add_action('admin_init', 'enable_media_replace_init');
 add_action('admin_menu', 'emr_menu');
 add_filter('attachment_fields_to_edit', 'enable_media_replace', 10, 2);
 
@@ -36,15 +35,9 @@ add_shortcode('file_modified', 'emr_get_modified_date');
  * To suppress it in the menu we give it an empty menu title.
  */
 function emr_menu() {
-	add_submenu_page(NULL, __("Replace media", "enable-media-replace"), '','upload_files', __FILE__, 'emr_options');
-}
-
-/**
- * Initialize this plugin. Called by 'admin_init' hook.
- * Only languages files needs loading during init.
- */
-function enable_media_replace_init() {
-	load_plugin_textdomain( 'enable-media-replace', false, dirname( plugin_basename( __FILE__ ) ) );
+	//add_submenu_page('upload.php', __("Replace media", "enable-media-replace"), '','upload_files', __FILE__, 'emr_options');
+	// usage:  add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
+	add_submenu_page('upload.php', 'Replace Media', 'test', 'upload_files', 'enable-media-replace/enable-media-replace.php', 'emr_options');
 }
 
 /**
@@ -90,53 +83,16 @@ function emr_options() {
 	if ( isset( $_GET['action'] ) && $_GET['action'] == 'media_replace' ) {
     	check_admin_referer( 'media_replace' ); // die if invalid or missing nonce
 		if ( array_key_exists("attachment_id", $_GET) && (int) $_GET["attachment_id"] > 0) {
-			include("popup.php");
+			include('popup.php');
 		}
 	}
 	
 	if ( isset( $_GET['action'] ) && $_GET['action'] == 'media_replace_upload' ) {
 		$plugin_url =  str_replace("enable-media-replace.php", "", __FILE__);
     	check_admin_referer( 'media_replace_upload' ); // die if invalid or missing nonce
-		require_once($plugin_url . "upload.php");
+		require_once($plugin_url . 'upload.php');
 	}
 
 }
-
-/**
- * Shorttag function to show the media file modification date/time.
- * @param array shorttag attributes
- * @return string content / replacement shorttag
- */
-function emr_get_modified_date($atts) {
-	$id=0;
-	$format= '';
-
-	extract(shortcode_atts(array(
-		'id' => '',
-		'format' => get_option('date_format') . " " . get_option('time_format'),
-	), $atts));
-
-	if ($id == '') return false;
-
-    // Get path to file
-	$current_file = get_attached_file($id, true);
-
-	// Get file modification time
-	$filetime = filemtime($current_file);
-
-	// Do timezone magic to get around UTC
-	$timezone = date_default_timezone_get();
-	date_default_timezone_set(get_option('timezone_string'));
-
-	// do date conversion
-	$content = date($format, $filetime);
-
-	// Set timezone back to default
-	date_default_timezone_set($timezone);
-
-	return $content;
-
-}
-
 
 ?>
