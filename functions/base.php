@@ -1655,8 +1655,25 @@ function _show_meta_boxes($post, $meta_box){
 					}
 				?>
 				<?php if($document):?>
-				<div class="description"><strong>NOTE:</strong> to replace the current file while maintaining the existing URL, click "Edit/Update File".  To use a new file with a new URL, use the file uploader below.</div><br />
-				<a href="<?=$url?>"><?=$document->post_title?></a> &nbsp; <a class="button-secondary" href="<?=admin_url()?>media.php?attachment_id=<?=$document->ID?>&action=edit">Edit / Update File</a><br /><br />
+				<?php
+					// If Enable Media Replace is active, give a direct link to the plugin's upload screen;
+					// otherwise go to the standard media editor screen as a fallback
+					$enable_media_replace_dir = 'enable-media-replace/enable-media-replace.php';
+					
+					is_plugin_active($enable_media_replace_dir) ? 
+						$media_edit_url = admin_url().'upload.php?page=enable-media-replace/enable-media-replace.php&action=media_replace&attachment_id='.$document->ID
+						: $media_edit_url = admin_url().'media.php?attachment_id='.$document->ID.'&action=edit';
+					
+					// Create a secure URL (Enable Media Replace requires this)
+					$action = 'media_replace';
+					$nonce_edit_url = wp_nonce_url( $media_edit_url, $action );
+					if (FORCE_SSL_ADMIN) {
+						$nonce_edit_url = str_replace("http:", "https:", $nonce_edit_url);
+					}
+				?>
+				<div class="description"><strong>NOTE:</strong> to replace the current file while maintaining the existing URL, click "Edit/Update File" and select "Just replace the file."  To use a new file with a new URL, use the file uploader below.</div><br />
+				<a href="<?=$url?>"><?=$document->post_title?></a> &nbsp; <a target="_blank" class="button-secondary" href="<?=$nonce_edit_url?>">Edit / Update File</a>
+				<br /><br />
 				<?php endif;?>
 				<input type="file" id="file_<?=$post->ID?>" name="<?=$field['id']?>"><br />
 			
