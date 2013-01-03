@@ -3,7 +3,7 @@
 ## Installation
 
 This theme requires the following plugins:
-* (none)
+* None (see notes)
 
 Required Installation Settings:
 * Theme Options > Events > Events Max Items:          4
@@ -45,3 +45,4 @@ Outputs a styled box containing HR contact info, as defined within the site Them
 
 * Page Sections are intended to follow a specific structure that somewhat mirrors the site's page relationships.  Any given two-column page should have a similarly-named Page Section with child Page Sections to define 'subcategories' for Resource Links.  No Page Section structure should go beyond a single parent > children relationship.
 * Some pages have extensive HTML markup and/or custom stylesheets; these are located in the *dev* directory of this repo
+* This theme comes packaged with code from the Enable Media Replace plugin v2.8.1 (http://wordpress.org/extend/plugins/enable-media-replace/).  The code has been simplfied to remove the 'Replace the file, use new file name and update all links' functionality to prevent users from modifying existing attachment URI's; this functionality can be achieved via the Resource Link 'File' meta field by uploading a new file.  The file modification time shortcode has also been removed as it isn't particularly necessary here.  The plugin code has been included within the theme to prevent the actual plugin from having to be installed across the network, but be aware that it can not receive automatic updates like standard plugins as it is just an include in *functions.php*.
