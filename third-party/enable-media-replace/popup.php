@@ -8,6 +8,7 @@
  * @package     wordpress
  * @subpackage  enable-media-replace
  *
+ * ** Modified for HR Theme **
  */
 
 if (!current_user_can('upload_files'))
@@ -39,25 +40,19 @@ $current_filename = substr($current_filename, (strrpos($current_filename, "/") +
 	?>
 
 	<form enctype="multipart/form-data" method="post" action="<?php echo $formurl; ?>">
-	<?php
-		#wp_nonce_field('enable-media-replace');
-	?>
 		<input type="hidden" name="ID" value="<?php echo (int) $_GET["attachment_id"]; ?>" />
-		<div id="message" class="updated fade"><p><?php echo __("NOTE: You are about to replace the media file", "enable-media-replace"); ?> "<?php echo $current_filename?>". <?php echo __("There is no undo. Think about it!", "enable-media-replace"); ?></p></div>
+		<div id="message" class="updated fade" style="margin-top:20px;"><p>NOTE: You are about to replace the media file <strong>"<?php echo $current_filename?>"</strong>. There is <strong>no undo</strong>. Think about it!</p></div>
 
-		<p><?php echo __("Choose a file to upload from your computer", "enable-media-replace"); ?></p>
+		<p>Choose a file to upload from your computer:</p>
 
 		<input type="file" name="userfile" />
 
-		<p><?php echo __("Select media replacement type:", "enable-media-replace"); ?></p>
+		<div class="directions">
+		<p>The name of the attachment will stay the same <strong>(<?php echo $current_filename; ?>)</strong> no matter what the file you upload is called. This will maintain any existing links or bookmarks to the attachment while ensuring the most up-to-date file is associated with the attachment.<br/>
+		The file you are uploading MUST use the same filetype as the original file <strong>(<?php echo $current_filetype; ?>)</strong>. Uploading a new file with a different filetype can cause the file to not load correctly.</p>
+		</div>
 
-		<label for="replace_type_1"><input CHECKED id="replace_type_1" type="radio" name="replace_type" value="replace"> <?php echo __("Just replace the file", "enable-media-replace"); ?></label>
-		<p class="howto"><?php echo __("Note: This option requires you to upload a file of the same type (", "enable-media-replace"); ?><?php echo $current_filetype; ?><?php echo __(") as the one you are replacing. The name of the attachment will stay the same (", "enable-media-replace"); ?><?php echo $current_filename; ?><?php echo __(") no matter what the file you upload is called.", "enable-media-replace"); ?></p>
-
-		<label for="replace_type_2"><input id="replace_type_2" type="radio" name="replace_type" value="replace_and_search"> <?php echo __("Replace the file, use new file name and update all links", "enable-media-replace"); ?></label>
-		<p class="howto"><?php echo __("Note: If you check this option, the name and type of the file you are about to upload will replace the old file. All links pointing to the current file (", "enable-media-replace"); ?><?php echo $current_filename; ?><?php echo __(") will be updated to point to the new file name.", "enable-media-replace"); ?></p>
-
-		<input type="submit" class="button" value="<?php echo __("Upload", "enable-media-replace"); ?>" /> <a href="#" onclick="history.back();"><?php echo __("Cancel", "enable-media-replace"); ?></a>
+		<input type="submit" class="button-primary" value="Upload" /> <a class="button" href="#" onclick="history.back();">Cancel</a>
 
 	</form>
 </div>

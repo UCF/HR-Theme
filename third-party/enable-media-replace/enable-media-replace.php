@@ -23,6 +23,7 @@ Developed for .SE (Stiftelsen för Internetinfrastruktur) - http://www.iis.se
  * @package     wordpress
  * @subpackage  enable-media-replace
  *
+ * ** Modified for HR Theme **
  */
 
 add_action('admin_menu', 'emr_menu');
@@ -37,7 +38,7 @@ add_shortcode('file_modified', 'emr_get_modified_date');
 function emr_menu() {
 	//add_submenu_page('upload.php', __("Replace media", "enable-media-replace"), '','upload_files', __FILE__, 'emr_options');
 	// usage:  add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
-	add_submenu_page('upload.php', 'Replace Media', 'test', 'upload_files', 'enable-media-replace/enable-media-replace.php', 'emr_options');
+	add_submenu_page(NULL, 'Replace Media', '', 'upload_files', 'enable-media-replace/enable-media-replace.php', 'emr_options');
 }
 
 /**
