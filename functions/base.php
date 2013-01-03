@@ -1658,12 +1658,7 @@ function _show_meta_boxes($post, $meta_box){
 				<?php
 					// Give a direct link to the Enable Media Upload replace screen
 					$enable_media_replace_dir = 'enable-media-replace/enable-media-replace.php';
-					
-					/*
-					is_plugin_active($enable_media_replace_dir) ? 
-						$media_edit_url = admin_url().'upload.php?page=enable-media-replace/enable-media-replace.php&action=media_replace&attachment_id='.$document->ID
-						: $media_edit_url = admin_url().'media.php?attachment_id='.$document->ID.'&action=edit';
-					*/
+
 					$media_edit_url = admin_url().'upload.php?page=enable-media-replace/enable-media-replace.php&action=media_replace&attachment_id='.$document->ID;
 					
 					// Create a secure URL (Enable Media Replace requires this)
