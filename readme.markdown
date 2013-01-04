@@ -4,7 +4,7 @@
 
 ### This theme requires the following plugins:
 * Relevanssi
-(see notes)
+* (see notes)
 
 ### Required Installation Settings:
 * Appearance > Widgets: 							  Sidebar should be empty
@@ -21,6 +21,7 @@
 * Settings > Reading > Blog pages show at most: 	  -1
 * Settings > Relevanssi > Indexing options > Post types to index: 'post', 'page', 'resourcelink'
 * Settings > Relevanssi > Indexing options > Minimum word length to index: 2
+
 (Remember to build the Relevanssi index when saving indexing options!)
 
 ## Custom Post Types
