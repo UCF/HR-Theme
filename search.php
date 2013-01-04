@@ -9,7 +9,7 @@
 <?php get_header(); ?>
 	<div class="row page-content" id="search-results">
 		<div class="span12" id="page-top">
-			<h1>Search Results</h1>
+			<h1>Search Results for "<?=htmlentities($_GET['s'])?>"</h1>
 		</div>
 		<div class="span12">
 			<article>
@@ -49,10 +49,10 @@
 <?php get_footer();?>
 
 <?php else:?>
-<?php get_header(); the_post();?>
+<?php get_header(); the_post();?>	
 	<div class="row page-content" id="search-results">
 		<div class="span12" id="page-top">
-			<h1>Search Results</h1>
+			<h1>Search Results for "<?=htmlentities($_GET['s'])?>"</h1>
 		</div>
 		<div class="span12">
 			<article>
@@ -60,10 +60,30 @@
 					<ul class="result-list">
 					<?php while(have_posts()): the_post();?>
 						<li class="item">
-							<h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
-							<a href="<?php the_permalink();?>"><?php the_permalink();?></a>
+							<h3>
+								<a <?php if ($post->post_type == 'resourcelink') { print 'class="'.ResourceLink::get_document_application($post).'"'; } ?> href="<?php the_permalink();?>">
+									<?php the_title();?>
+								</a>
+							</h3>
+							<?php
+								$ancestors = get_post_ancestors($post->ID);
+								if ($ancestors) { ?>
+									<p class="result-breadcrumbs"><small>under
+									<?php
+									krsort($ancestors);
+									foreach ($ancestors as $ancestor) {
+										print '<a href="'.get_permalink($ancestor).'">'.get_post($ancestor)->post_title.'</a>';
+										if ($ancestor !== end($ancestors)) {
+											print ' &raquo; ';
+										}
+									}
+									?>
+									</small></p>
+							<?php
+								}
+							?>
 							<div class="snippet">
-								<?php the_excerpt();?>
+								<?php if ($post->post_content !== '') { the_excerpt(); } ?>
 							</div>
 						</li>
 					<?php endwhile;?>
