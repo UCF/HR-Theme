@@ -44,12 +44,44 @@ function get_breadcrumbs($post_id) {
 
 
 /**
-* Hide unused admin tools (Links, Comments, etc)
+ * Hide unused admin tools (Links, Comments, etc)
 **/
 function hide_admin_links() {
 	remove_menu_page('link-manager.php');
 	remove_menu_page('edit-comments.php');
 }
-add_action( 'admin_menu', 'hide_admin_links' )
+add_action( 'admin_menu', 'hide_admin_links' );
 
+
+/**
+ * Eliminate redundancy with ResourceLinks pointing to pages/anchors
+ * and actual pages in Relevanssi search results
+**/
+function separate_result_types($hits) {
+	
+    // For each hit (post), check to see if it is a resourcelink.
+	// If it is not a resourcelink, push it to $filtered.
+	// If it is a resourcelink, check if it is a link to a page or page anchor.
+	// If it does not (it links to a file), push it to $filtered.
+	$filtered_hits = array();
+    if (!empty($hits)) {
+        foreach ($hits[0] as $hit) {
+            if ($hit->post_type == 'resourcelink') {                   
+            	if (get_post_meta($hit->ID, 'resourcelink_url', true) == '' && get_post_meta($hit->ID, 'resourcelink_page', true) == '') {
+					array_push($filtered_hits, $hit);
+				}
+			}
+			else {
+				array_push($filtered_hits, $hit);
+			}
+        }
+    }
+	$hits[0] = $filtered_hits;
+ 
+    return $hits;
+}
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if (is_plugin_active('relevanssi/relevanssi.php') == true) {
+	add_filter('relevanssi_hits_filter', 'separate_result_types');
+}
 ?>
