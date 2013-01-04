@@ -2,10 +2,12 @@
 
 ## Installation
 
-This theme requires the following plugins:
-* None (see notes)
+### This theme requires the following plugins:
+* Relevanssi
+(see notes)
 
-Required Installation Settings:
+### Required Installation Settings:
+* Appearance > Widgets: 							  Sidebar should be empty
 * Theme Options > Events > Events Max Items:          4
 * Theme Options > Events > Events Calendar URL:       TBD
 * Theme Options > Site > Contact Email:               AskHR@ucf.edu
@@ -16,6 +18,10 @@ Required Installation Settings:
 * Theme Options > Site > Phone #:                     (407) 823-2771
 * Theme Options > Site > Fax #:                       (407) 823-1095
 * (From Network Admin) All Sites > /hr/ > Edit > Settings > Uploads Use Yearmonth Folders: 0 (removes month/year permalink structure for media library uploads)
+* Settings > Reading > Blog pages show at most: 	  -1
+* Settings > Relevanssi > Indexing options > Post types to index: 'post', 'page', 'resourcelink'
+* Settings > Relevanssi > Indexing options > Minimum word length to index: 2
+(Remember to build the Relevanssi index when saving indexing options!)
 
 ## Custom Post Types
 
