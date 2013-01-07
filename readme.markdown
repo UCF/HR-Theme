@@ -9,6 +9,7 @@
 
 ### Required Installation Settings:
 * Appearance > Widgets: 							  Sidebar should be empty
+* Theme Options > Search > Enable Google Search:	  Off
 * Theme Options > Events > Events Max Items:          4
 * Theme Options > Events > Events Calendar URL:       TBD
 * Theme Options > Site > Contact Email:               AskHR@ucf.edu
