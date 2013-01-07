@@ -4,6 +4,7 @@
 
 ### This theme requires the following plugins:
 * Relevanssi
+* GravityForms
 * (see notes)
 
 ### Required Installation Settings:
