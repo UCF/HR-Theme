@@ -15,10 +15,18 @@ list($current_filename, $current_filetype) = mysql_fetch_array(mysql_query($sql)
 $current_guid = $current_filename;
 $current_filename = substr($current_filename, (strrpos($current_filename, "/") + 1));
 
-$current_file = get_attached_file((int) $_POST["ID"], true);
-$current_path = substr($current_file, 0, (strrpos($current_file, "/")));
-$current_file = str_replace("//", "/", $current_file);
-$current_filename = basename($current_file);
+$current_file = get_attached_file((int) $_POST["ID"], true); // FAILS FOR /files/file.ext UPLOADS!
+if (!$current_file) {
+	// get_attached_file() fails for files not using the /files/YYYY/MM/file.ext structure
+	// so we need to explicitly define $current_file
+	$current_path = BLOGUPLOADDIR;
+	$current_file = $current_path.$current_filename;
+}
+else {
+	$current_path = substr($current_file, 0, (strrpos($current_file, "/")));
+	$current_file = str_replace("//", "/", $current_file);
+	$current_filename = basename($current_file);
+}
 
 // Check for an uploaded file
 if (is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
@@ -37,6 +45,20 @@ if (is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
 	
 	// Drop-in replace and we don't even care if you uploaded something that is the wrong file-type.
 	// That's your own fault, because we warned you!
+
+	// Useful for debugging:
+	/*print "Post ID is: ";
+	var_dump((int)$_POST['ID']);
+	print "<br/>Current Filename is: ";
+	var_dump($current_filename);
+	print "<br/>Current File is: ";
+	var_dump($current_file);
+	print "<br/>Current path is: ";
+	var_dump($current_path);
+	print "<br/> Current GUID is: ";
+	var_dump($current_guid);
+	exit;*/
+
 
 	// Delete old file
 	unlink($current_file);
