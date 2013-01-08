@@ -354,8 +354,13 @@ class ResourceLink extends CustomPostType{
 		
 		// URLS take precedence over any other fields.
 		// Pages take precedence over files.
+		$uploads_dir = wp_upload_dir();
+		$download_pg = get_permalink(get_page_by_title('Download Media'));
+		
 		$url = get_post_meta($form->ID, $prefix.'_url', True);
 		$file = wp_get_attachment_url(get_post_meta($form->ID, $prefix.'_file', True));
+		$filename = explode($uploads_dir['baseurl'], $file);
+		$filename = substr($filename[1], 1);
 		$page = get_post_meta($form->ID, $prefix.'_page', True);
 		
 		if (!$url && !$file && !$page){
@@ -373,7 +378,7 @@ class ResourceLink extends CustomPostType{
 			return get_permalink($page);
 		}
 		else {
-			return $file;
+			return $download_pg.'?file='.$filename;
 		}
 	}
 	
