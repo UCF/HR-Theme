@@ -18,8 +18,15 @@ if (is_plugin_active('relevanssi/relevanssi.php') == true) { ?>
 					<?php while(have_posts()): the_post();?>
 						<li class="item">
 							<h3>
-								<a <?php if ($post->post_type == 'resourcelink') { print 'class="'.ResourceLink::get_document_application($post).'"'; } ?> href="<?php the_permalink();?>">
-									<?php the_title();?>
+								<a 
+								<?php if ($post->post_type == 'resourcelink') { ?>
+									class="<?=ResourceLink::get_document_application($post)?>" href="<?=ResourceLink::get_url($post)?>">
+								<?php 
+								} else {
+								?>
+									href="<?=the_permalink()?>">
+								<?php } ?>
+									<?=the_title()?>
 								</a>
 							</h3>
 							<?php
@@ -90,8 +97,15 @@ if (is_plugin_active('relevanssi/relevanssi.php') == true) { ?>
 						?>
 						<li class="item">
 							<h3>
-								<a <?php if ($post->post_type == 'resourcelink') { print 'class="'.ResourceLink::get_document_application($post).'"'; } ?> href="<?php the_permalink();?>">
-									<?php the_title();?>
+								<a 
+								<?php if ($post->post_type == 'resourcelink') { ?>
+									class="<?=ResourceLink::get_document_application($post)?>" href="<?=ResourceLink::get_url($post)?>">
+								<?php 
+								} else {
+								?>
+									href="<?=the_permalink()?>">
+								<?php } ?>
+									<?=the_title()?>
 								</a>
 							</h3>
 							<?php
