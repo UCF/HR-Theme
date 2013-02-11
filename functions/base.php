@@ -1649,7 +1649,7 @@ function _show_meta_boxes($post, $meta_box){
 					$document_id = get_post_meta($post->ID, $field['id'], True);
 					if ($document_id){
 						$document = get_post($document_id);
-						$url      = wp_get_attachment_url($document->ID);
+						$url      = str_replace('https://', 'http://', wp_get_attachment_url($document->ID));
 					}else{
 						$document = null;
 					}
