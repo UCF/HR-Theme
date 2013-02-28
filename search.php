@@ -7,9 +7,12 @@
 	$start   = (is_numeric($_GET['start'])) ? (int)$_GET['start'] : 0;
 	$results = get_search_results($_GET['s'], $start, $limit, $domain);
 ?>
+	<div class="row page-content" id="search-results">
+		<div class="span12" id="page-top">
+			<h1>Search Results for "<?=htmlentities($_GET['s'])?>"</h1>
+		</div>
 		<div class="span12">
 			<article>
-				<h1>Search Results</h1>
 				<?php if(count($results['items'])):?>
 				<ul class="result-list">
 					<?php foreach($results['items'] as $result):?>
@@ -42,7 +45,7 @@
 				<?php endif;?>
 			</article>
 		</div>
-
+	</div>
 <?php
 }
 
