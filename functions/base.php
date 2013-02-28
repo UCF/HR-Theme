@@ -831,7 +831,7 @@ function get_search_results(
 		
 		$opts = array('http' => array(
 									'method' => 'GET',
-									'timeout' => 20
+									'timeout' => 10
 		));
 		$context = stream_context_create($opts);
 		
