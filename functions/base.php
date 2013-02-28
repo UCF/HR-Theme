@@ -828,7 +828,14 @@ function get_search_results(
 	if (strlen($query) > 0){
 		$query_string = http_build_query($arguments);
 		$url          = $search_url.'?'.$query_string;
-		$response     = file_get_contents($url);
+		
+		$opts = array('http' => array(
+									'method' => 'GET',
+									'timeout' => 20
+		));
+		$context = stream_context_create($opts);
+		
+		$response     = file_get_contents($url, NULL, $context);
 		
 		if ($response){
 			$xml   = simplexml_load_string($response);
