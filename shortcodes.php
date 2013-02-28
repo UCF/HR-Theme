@@ -205,14 +205,21 @@ function sc_post_type_search($params=array(), $content='') {
 		'non_alpha_section_name' => 'Other',
 		'column_width'           => 'span4',
 		'column_count'           => '3',
-		'order_by'               => 'post_title',
+		'order_by'               => 'title',
 		'order'                  => 'ASC',
+		'show_sorting'           => true,
+		'default_sorting'        => 'term',
 	);
 
 	$params = ($params === '') ? $defaults : array_merge($defaults, $params);
 
 	$params['show_empty_sections'] = (bool)$params['show_empty_sections'];
 	$params['column_count']        = is_numeric($params['column_count']) ? (int)$params['column_count'] : $defaults['column_count'];
+	$params['show_sorting']        = (bool)$params['show_sorting'];
+	
+	if(!in_array($params['default_sorting'], array('term', 'alpha'))) {
+		$params['default_sorting'] = $default['default_sorting'];
+	}
 	
 	// Resolve the post type class
 	if(is_null($post_type_class = get_custom_post_type($params['post_type_name']))) {
@@ -341,16 +348,31 @@ function sc_post_type_search($params=array(), $content='') {
 			</form>
 		</div>
 		<div class="post-type-search-results "></div>
+		<? if($params['show_sorting']) { ?>
 		<span class="search-toggle-text">Sort By: </span>
 		<div class="btn-group post-type-search-sorting">
-			<button class="btn active"><i class="icon-list-alt"></i> <span class="search-toggle-text">Category</span></button>
-			<button class="btn"><i class="icon-font"></i> <span class="search-toggle-text">Alphabetical</span></button>
+			<button class="btn<?if($params['default_sorting'] == 'term') echo ' active';?>"><i class="icon-list-alt"></i> <span class="search-toggle-text">Category</span></button>
+			<button class="btn<?if($params['default_sorting'] == 'alpha') echo ' active';?>"><i class="icon-font"></i> <span class="search-toggle-text">Alphabetical</span></button>
 		</div>
+		<? } ?>
 	<?
 
 	foreach($sections as $id => $section) {
+		$hide = false;
+		switch($id) {
+			case 'post-type-search-alpha':
+				if($params['default_sorting'] == 'term') {
+					$hide = True;
+				}
+				break;
+			case 'post-type-search-term':
+				if($params['default_sorting'] == 'alpha') {
+					$hide = True;
+				}
+				break;
+		}
 		?>
-		<div class="<?=$id?>"<? if($id == 'post-type-search-alpha') echo ' style="display:none;"'; ?>>
+		<div class="<?=$id?>"<? if($hide) echo ' style="display:none;"'; ?>>
 			<div class="row">
 			<? $count = 0; ?>
 			<? foreach($section as $section_title => $section_posts) { ?>
