@@ -82,9 +82,9 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 #header #header-search #s { display: inline; width:65%; }
 #header #header-search #s { *width: 225px; *height: 20px; /* IE7 fix */ }
 
-.menu.horizontal li { margin-right: 8px; }
+.menu.horizontal li { margin-right: 8px; margin-bottom: 0; }
 .menu.horizontal li:after { content: ""; }
-.menu a { font-weight: 400; color: #333; }
+.menu a { font-weight: 400; color: #333; display: inline-block; }
 
 #header-menu li.nexttolast { margin-left: 60px; }
 #header-menu li.nexttolast:after { content: "|"; }
