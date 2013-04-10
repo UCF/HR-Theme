@@ -95,7 +95,7 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 	color: #ED1C24;
 }
 
-#footer-menu{ }
+#footer-menu{ overflow: auto; }
 #footer-menu li a { font-size: 14px; }
 #footer-widget-wrap { margin-top: 16px; }
 #footer { border-top: 1px solid #e1e1e1; margin-bottom: 50px; padding-top: 20px; }
