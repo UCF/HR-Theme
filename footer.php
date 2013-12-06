@@ -1,6 +1,5 @@
 <?php $options = get_option(THEME_OPTIONS_NAME);?>
 			<div id="footer">
-				
 				<?=wp_nav_menu(array(
 					'theme_location' => 'footer-menu', 
 					'container' => 'false', 
@@ -54,10 +53,7 @@
 					</div>
 				</div>
 			</div>
-		</div><!-- #blueprint-container -->
+		</div>
 	</body>
-	<!--[if IE]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 	<?="\n".footer_()."\n"?>
 </html>
