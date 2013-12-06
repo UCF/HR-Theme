@@ -390,8 +390,7 @@ Config::$links = array(
 
 Config::$styles = array(
 	array('admin' => True, 'src' => THEME_CSS_URL.'/admin.css',),
-	'http://universityheader.ucf.edu/bar/css/bar.css',
-	'http://fonts.googleapis.com/css?family=Nixie+One',
+	'//fonts.googleapis.com/css?family=Nixie+One',
 	THEME_STATIC_URL.'/bootstrap/build/css/bootstrap.css',
 );
 
@@ -416,9 +415,7 @@ if ($theme_options['bootstrap_enable_responsive'] == 1) {
 Config::$scripts = array(
 	array('admin' => True, 'src' => THEME_JS_URL.'/admin.js',),
 	'//universityheader.ucf.edu/bar/js/university-header.js',
-	//array('name' => 'jquery', 'src' => 'http://code.jquery.com/jquery-1.7.1.min.js',),
 	THEME_STATIC_URL.'/bootstrap/build/js/bootstrap.js',
-	//THEME_JS_URL.'/jquery-extras.js',
 	array('name' => 'base-script',  'src' => THEME_JS_URL.'/webcom-base.js',),
 	array('name' => 'theme-script', 'src' => THEME_JS_URL.'/script.js',),
 );
@@ -437,7 +434,7 @@ if ($theme_options['gw_verify']){
 
 function jquery_in_header() {
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'http://code.jquery.com/jquery-1.7.1.min.js');
+    wp_register_script( 'jquery', '//code.jquery.com/jquery-1.7.1.min.js');
     wp_enqueue_script( 'jquery' );
 }    
  
