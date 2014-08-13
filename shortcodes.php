@@ -209,13 +209,15 @@ function sc_post_type_search($params=array(), $content='') {
 		'order'                  => 'ASC',
 		'show_sorting'           => true,
 		'default_sorting'        => 'term',
+		'use_search'             => true, # if false, get posts using this function's filtering options, but disable search ability
 	);
 
 	$params = ($params === '') ? $defaults : array_merge($defaults, $params);
 
-	$params['show_empty_sections'] = (bool)$params['show_empty_sections'];
+	$params['show_empty_sections'] = filter_var($params['show_empty_sections'], FILTER_VALIDATE_BOOLEAN);
 	$params['column_count']        = is_numeric($params['column_count']) ? (int)$params['column_count'] : $defaults['column_count'];
-	$params['show_sorting']        = (bool)$params['show_sorting'];
+	$params['show_sorting']        = filter_var($params['show_sorting'], FILTER_VALIDATE_BOOLEAN);
+	$params['use_search']          = filter_var($params['use_search'], FILTER_VALIDATE_BOOLEAN);
 	
 	if(!in_array($params['default_sorting'], array('term', 'alpha'))) {
 		$params['default_sorting'] = $default['default_sorting'];
@@ -240,24 +242,26 @@ function sc_post_type_search($params=array(), $content='') {
 	// Register if the search data with the JS PostTypeSearchDataManager
 	// Format is array(post->ID=>terms) where terms include the post title
 	// as well as all associated tag names
-	$search_data = array();
-	foreach(get_posts(array('numberposts' => -1, 'post_type' => $params['post_type_name'])) as $post) {
-		$search_data[$post->ID] = array($post->post_title);
-		foreach(wp_get_object_terms($post->ID, 'post_tag') as $term) {
-			$search_data[$post->ID][] = $term->name;
+	if ($params['use_search']) {
+		$search_data = array();
+		foreach(get_posts(array('numberposts' => -1, 'post_type' => $params['post_type_name'])) as $post) {
+			$search_data[$post->ID] = array($post->post_title);
+			foreach(wp_get_object_terms($post->ID, 'post_tag') as $term) {
+				$search_data[$post->ID][] = $term->name;
+			}
 		}
+		?>
+		<script type="text/javascript">
+			if(typeof PostTypeSearchDataManager != 'undefined') {
+				PostTypeSearchDataManager.register(new PostTypeSearchData(
+					<?=json_encode($params['column_count'])?>,
+					<?=json_encode($params['column_width'])?>,
+					<?=json_encode($search_data)?>
+				));
+			}
+		</script>
+		<?
 	}
-	?>
-	<script type="text/javascript">
-		if(typeof PostTypeSearchDataManager != 'undefined') {
-			PostTypeSearchDataManager.register(new PostTypeSearchData(
-				<?=json_encode($params['column_count'])?>,
-				<?=json_encode($params['column_width'])?>,
-				<?=json_encode($search_data)?>
-			));
-		}
-	</script>
-	<?
 
 	// Set up a post query
 	$by_term = array();
@@ -333,24 +337,27 @@ function sc_post_type_search($params=array(), $content='') {
 	}
 
 	// Split up this post type's posts by the first alpha character
+	// (Do not fetch alphabetical results when use_search is set to false)
 	$by_alpha = array();
-	$args['orderby'] = 'title';
-	$args['order'] = 'ASC';
-	$args['tax_query'] = '';
-	$by_alpha_posts = get_posts($args);
-	foreach($by_alpha_posts as $post) {
-		if(preg_match('/([a-zA-Z])/', $post->post_title, $matches) == 1) {
-			$by_alpha[strtoupper($matches[1])][] = $post;
-		} else {
-			$by_alpha[$params['non_alpha_section_name']][] = $post;
+	if ($params['use_search']) {
+		$args['orderby'] = 'title';
+		$args['order'] = 'ASC';
+		$args['tax_query'] = '';
+		$by_alpha_posts = get_posts($args);
+		foreach($by_alpha_posts as $post) {
+			if(preg_match('/([a-zA-Z])/', $post->post_title, $matches) == 1) {
+				$by_alpha[strtoupper($matches[1])][] = $post;
+			} else {
+				$by_alpha[$params['non_alpha_section_name']][] = $post;
+			}
 		}
-	}
-	ksort($by_alpha);
+		ksort($by_alpha);
 
-	if($params['show_empty_sections']) {
-		foreach(range('a', 'z') as $letter) {
-			if(!isset($by_alpha[strtoupper($letter)])) {
-				$by_alpha[strtoupper($letter)] = array();
+		if($params['show_empty_sections']) {
+			foreach(range('a', 'z') as $letter) {
+				if(!isset($by_alpha[strtoupper($letter)])) {
+					$by_alpha[strtoupper($letter)] = array();
+				}
 			}
 		}
 	}
@@ -363,6 +370,7 @@ function sc_post_type_search($params=array(), $content='') {
 	ob_start();
 	?>
 	<div class="post-type-search">
+		<? if ($params['use_search']) { ?>
 		<div class="post-type-search-header">
 			<form class="post-type-search-form" action="." method="get">
 				<label><?=$params['default_search_label']?></label>
@@ -370,6 +378,7 @@ function sc_post_type_search($params=array(), $content='') {
 			</form>
 		</div>
 		<div class="post-type-search-results "></div>
+		<? } ?>
 		<? if($params['show_sorting']) { ?>
 		<span class="search-toggle-text">Sort By: </span>
 		<div class="btn-group post-type-search-sorting">
@@ -392,6 +401,10 @@ function sc_post_type_search($params=array(), $content='') {
 					$hide = True;
 				}
 				break;
+		}
+		// When use_search is false, hide empty sections
+		if (!$params['use_search'] && empty($section)) {
+			$hide = True;
 		}
 		?>
 		<div class="<?=$id?>"<? if($hide) echo ' style="display:none;"'; ?>>
