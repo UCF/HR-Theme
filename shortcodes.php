@@ -210,6 +210,8 @@ function sc_post_type_search($params=array(), $content='') {
 		'show_sorting'           => true,
 		'default_sorting'        => 'term',
 		'use_search'             => true, # if false, get posts using this function's filtering options, but disable search ability
+		'show_uncategorized'	 => false,
+		'uncategorized_term_name'=> ''
 	);
 
 	$params = ($params === '') ? $defaults : array_merge($defaults, $params);
@@ -332,6 +334,19 @@ function sc_post_type_search($params=array(), $content='') {
 				$by_term[$term->name] = array();
 			} else {
 				$by_term[$term->name] = $posts;
+			}
+		}
+
+		// Add uncategorized items if parameter is set.
+		if ($params['show_uncategorized']) {
+			$terms = get_terms($params['taxonomy'], array('fields' => 'ids', 'hide_empty' => false));
+			$args['tax_query'][0]['terms'] = $terms;
+			$args['tax_query'][0]['operator'] = 'NOT IN';
+			$uncat_posts = get_posts($args);
+			if (count($uncat_posts == 0) && $params['show_empty_sections']) {
+				$by_term[$params['uncategorized_term_name']] = array();
+			} else {
+				$by_term[$params['uncategorized_term_name']] = $uncat_posts;
 			}
 		}
 	}
