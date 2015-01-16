@@ -440,7 +440,7 @@ function sc_post_type_search($params=array(), $content='') {
 						foreach($split_posts as $index => $column_posts) {
 							?> <div class="<?=$params['column_width']?>">
 								<ul> <?
-						 	foreach(array_slice($column_posts) as $key => $post) { ?>
+						 	foreach($column_posts as $key => $post) { ?>
 								<li data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="uncategorized '.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
 							<? } ?> 
 								</ul>
@@ -453,7 +453,7 @@ function sc_post_type_search($params=array(), $content='') {
 						<div class="<?=$params['column_width']?>">
 							<h3><?=esc_html($section_title)?></h3>
 							<ul>
-							<? foreach(array_slice($section_posts) as $post) {  ?>
+							<? foreach($section_posts as $post) {  ?>
 								<li data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="'.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
 							<? } ?>
 							</ul>
