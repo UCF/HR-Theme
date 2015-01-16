@@ -313,6 +313,24 @@ p i { vertical-align: middle !important; padding-bottom: 2px; }
 .post-type-search ul li.excel { list-style-image: url('static/img/documents-excel.png'); }
 .post-type-search ul li.powerpoint { list-style-image: url('static/img/documents-ppt.png'); }
 .post-type-search ul li.html { list-style-image: url('static/img/documents-html.png'); }
+
+.post-type-search-term span.uncategorized { display: list-item; }
+
+.post-type-search-term span, .post-type-search-alpha span { line-height: 15px !important; margin-bottom: 9px; }
+.post-type-search-term span a, .post-type-search-alpha span a { font-size: 13px; color: #0086cb; text-decoration: none; }
+.post-type-search-term span a:hover, .post-type-search-alpha span a:hover { color: #0086cb; text-decoration: underline; }
+
+.post-type-search span.document, .post-type-search span.pdf, .post-type-search span.zip, .post-type-search span.word, .post-type-search span.excel, .post-type-search span.powerpoint, .post-type-search span.html {
+	margin-left: 25px;
+}
+.post-type-search span.document { list-style-image: url('static/img/documents-doc.png'); }
+.post-type-search span.pdf { list-style-image: url('static/img/documents-pdf.png'); }
+.post-type-search span.zip { list-style-image: url('static/img/documents-zip.png'); }
+.post-type-search span.word { list-style-image: url('static/img/documents-word.png'); }
+.post-type-search span.excel { list-style-image: url('static/img/documents-excel.png'); }
+.post-type-search span.powerpoint { list-style-image: url('static/img/documents-ppt.png'); }
+.post-type-search span.html { list-style-image: url('static/img/documents-html.png'); }
+
 #sidebar .post-type-search ul li.document, #sidebar .post-type-search ul li.pdf, #sidebar .post-type-search ul li.zip, #sidebar .post-type-search ul li.word, #sidebar .post-type-search ul li.excel, #sidebar .post-type-search ul li.powerpoint, #sidebar .post-type-search ul li.html {
 	list-style-image: none;
 	margin-left: 0;
