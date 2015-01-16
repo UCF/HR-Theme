@@ -428,21 +428,24 @@ function sc_post_type_search($params=array(), $content='') {
 			<? foreach($section as $section_title => $section_posts) { ?>
 				<? if ($section_posts) { ?>
 					<?  if ($section_title == $params['uncategorized_term_name'] ) { ?>
-						</div><div class="row"><div class="<?=$params['column_width']?>"><h3><?=esc_html($section_title); ?></h3></div></div>
-						<? foreach(array_slice($section_posts, $start, $end) as $key => $post) { 
-							if ($key % $params['column_count'] == 0) { ?>
-								<div class="row">
-							<? } ?>
-									<div class="<?=$params['column_width']?>">
-										<span data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="uncategorized '.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></span>
-									</div>
-							<? if ($key % $params['column_count'] == ($params['column_count'] - 1)) { ?>
+						</div>
+							<div class="row">
+								<div class="<?=$params['column_width']?>">
+									<h3><?=esc_html($section_title); ?></h3>
 								</div>
-							<? }
-								if ($key == (count($section_posts) - 1)) {
-									print '<div class="row">';
-								}
-						} ?>
+							</div>
+							<div class="row">
+						<?
+						$split_posts = array_chunk($section_posts, floor(count($section_posts) / $params['column_count']));
+						foreach($split_posts as $index => $column_posts) {
+							?> <div class="<?=$params['column_width']?>">
+								<ul> <?
+						 	foreach(array_slice($column_posts, $start, $end) as $key => $post) { ?>
+								<li data-post-id="<?=$post->ID?>" <?=($post_type->get_document_application($post)) ? 'class="uncategorized '.$post_type->get_document_application($post).'"' : ''?>><?=$post_type->toHTML($post)?><span class="search-post-pgsection"><?=$section_title?></span></li>
+							<? } ?> 
+								</ul>
+							</div>
+						<? } ?>
 					<? } else { ?>
 						<? 	if ($count % $params['column_count'] == 0 && $count !== 0) {
 							print '</div><div class="row">';
