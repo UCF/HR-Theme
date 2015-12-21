@@ -373,9 +373,6 @@ class FileField extends Field {
 				<a class="meta-file-delete <?php if ( empty( $this->value ) ) { echo 'hidden'; } ?>" href="#">
 					Remove File
 				</a>
-				<p>
-				<?php echo $edit_url; ?>
-				</p>
 				<?php if ( $edit_url = $this->get_nonce_edit_url() ) : ?>
 				<br>
 				<a target="_blank" class="button-secondary meta-file-edit <?php if ( empty( $this->value ) ) { echo 'hidden'; } ?>" href="<?php echo $edit_url; ?>">
