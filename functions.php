@@ -7,7 +7,6 @@ require_once('functions/admin.php');  			# Admin/login functions
 require_once('functions/config.php');			# Where per theme settings are registered
 require_once('shortcodes.php');         		# Per theme shortcodes
 require_once('third-party/truncate-html.php');  # Includes truncateHtml function
-require_once('third-party/enable-media-replace/enable-media-replace.php');  # Includes Enable Media Replace plugin (does not register plugin in WP!)
 
 //Add theme-specific functions here.
 
@@ -22,9 +21,9 @@ function get_breadcrumbs($post_id) {
 	if (is_home() || is_front_page()) {
 		return '';
 	}
-	
+
 	$ancestors = get_post_ancestors($post_id);
-	
+
 	$output = '<ul class="breadcrumb">';
 	$output .= '<li><a href="'.get_site_url().'">Home</a> <span class="divider">/</span></li>';
 	if ($ancestors) {
@@ -38,7 +37,7 @@ function get_breadcrumbs($post_id) {
 	}
 	$output .= '<li class="active"><a href="'.get_permalink($post_id).'">'.get_the_title($post_id).'</a></li>';
 	$output .= '</ul>';
-	
+
 	return $output;
 }
 
@@ -58,7 +57,7 @@ add_action( 'admin_menu', 'hide_admin_links' );
  * and actual pages in Relevanssi search results
 **/
 function separate_result_types($hits) {
-	
+
     // For each hit (post), check to see if it is a resourcelink.
 	// If it is not a resourcelink, push it to $filtered.
 	// If it is a resourcelink, check if it is a link to a page or page anchor.
@@ -66,7 +65,7 @@ function separate_result_types($hits) {
 	$filtered_hits = array();
     if (!empty($hits)) {
         foreach ($hits[0] as $hit) {
-            if ($hit->post_type == 'resourcelink') {                   
+            if ($hit->post_type == 'resourcelink') {
             	if (get_post_meta($hit->ID, 'resourcelink_url', true) == '' && get_post_meta($hit->ID, 'resourcelink_page', true) == '') {
 					array_push($filtered_hits, $hit);
 				}
@@ -77,7 +76,7 @@ function separate_result_types($hits) {
         }
     }
 	$hits[0] = $filtered_hits;
- 
+
     return $hits;
 }
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -96,4 +95,20 @@ function protocol_relative_attachment_url($url) {
     return $url;
 }
 add_filter('wp_get_attachment_url', 'protocol_relative_attachment_url');
+
+
+/**
+ * Force 'edit_attachment' to be fired whenever an attachment's metadata is
+ * updated (for Enable Media Replace compatibility with VDP plugin.)
+ **/
+function trigger_edit_attachment( $meta_id, $post_id, $meta_key, $meta_value ) {
+    // Only $meta_id tends to be available at this point, so fill in the blanks:
+    $meta = get_post_meta_by_id( $meta_id );
+    $post_obj = get_post( intval( $meta->post_id ) );
+    if ( $post_obj && $post_obj->post_type == 'attachment' ) {
+        do_action( 'edit_attachment', intval( $post_obj->ID ) );
+    }
+}
+add_action( 'updated_post_meta', 'trigger_edit_attachment', 10, 4 );
+
 ?>
