@@ -286,8 +286,9 @@ class ResourceLink extends CustomPostType{
 			'name'    => __('Existing Page'),
 			'desc'    => __('Associate this link with an already existing page.  An inner-page link can be specified by choosing a page below and typing an anchor link in the URL field (i.e. #some-section)'),
 			'id'      => $this->options('name').'_page',
-			'type' => 'select',
-			'options' =>  $this->get_page_dropdown()
+			'type'    => 'select',
+			'options' =>  $this->get_page_dropdown(),
+			'default' => '--'
 		);
 		$fields[] = array(
 			'name'    => __('File'),
