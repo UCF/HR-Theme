@@ -909,13 +909,11 @@ function get_search_results(
 		$query_string = http_build_query($arguments);
 		$url          = $search_url.'?'.$query_string;
 
-		$opts = array('http' => array(
-									'method' => 'GET',
-									'timeout' => 10
-		));
-		$context = stream_context_create($opts);
+		$opts = array(
+			'timeout' => 10
+		);
 
-		$response     = file_get_contents($url, NULL, $context);
+		$response     = wp_remote_retrieve_body( wp_remote_get( $url, $opts ) );
 
 		if ($response){
 			$xml   = simplexml_load_string($response);
