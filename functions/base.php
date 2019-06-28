@@ -812,10 +812,10 @@ function get_image_choices(){
 	);
 
 	$attachments = get_posts($args);
-	$attachments = array_filter($attachments, create_function('$a', '
+	$attachments = array_filter($attachments, function( $a ){
 		$is_image = (strpos($a->post_mime_type, "image/") !== False);
 		return $is_image;
-	'));
+	});
 	foreach($attachments as $image){
 		$filename = basename(get_attached_file($image->ID));
 		$value    = $image->ID;
@@ -909,13 +909,11 @@ function get_search_results(
 		$query_string = http_build_query($arguments);
 		$url          = $search_url.'?'.$query_string;
 
-		$opts = array('http' => array(
-									'method' => 'GET',
-									'timeout' => 10
-		));
-		$context = stream_context_create($opts);
+		$opts = array(
+			'timeout' => 10
+		);
 
-		$response     = file_get_contents($url, NULL, $context);
+		$response     = wp_remote_retrieve_body( wp_remote_get( $url, $opts ) );
 
 		if ($response){
 			$xml   = simplexml_load_string($response);
@@ -1475,9 +1473,9 @@ function body_classes(){
 function installed_custom_post_types(){
 	$installed = Config::$custom_post_types;
 
-	return array_map(create_function('$class', '
+	return array_map(function( $class ){
 		return new $class;
-	'), $installed);
+	}, $installed);
 }
 
 /**
@@ -1487,9 +1485,9 @@ function installed_custom_post_types(){
 function installed_custom_taxonomies(){
 	$installed = Config::$custom_taxonomies;
 
-	return array_map(create_function('$class', '
+	return array_map(function( $class ){
 		return new $class;
-	'), $installed);
+	}, $installed);
 }
 
 function flush_rewrite_rules_if_necessary(){
